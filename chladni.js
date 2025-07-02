@@ -17,8 +17,8 @@ const LANG_PACK = {
             - Интегрировать возможность работы Client-Server (сейчас всё выполняется у клиента, и это нагружает ресурсы пользователя).</p>
             <p>В будущем, когда будет время, буду дорабатывать проект, а пока я прячусь от налоговой. Но донат никто не отменял, поэтому вот адрес моего кошелька TON в телеге: <b>UQAY5_p2plWbshvrITsPk5TJ4CKBneJImdVUV-8-MBOA4Lhh</b></p>
             <div class="welcome-image-container">
-                <img src="https://ltdfoto.ru/images/2025/07/02/image4575f4cfe5ce4ef2.png" alt="image4575f4cfe5ce4ef2.png" border="0" />
-                <img src="https://ltdfoto.ru/images/2025/07/02/9gag_logo.jpg" alt="9gag_logo.jpg" border="0" />
+                <img src="./img/111.png" alt="Chladni Pattern Example" border="0" />
+                <img src="./img/222.jpg" alt="Project Logo" border="0" />
             </div>
         `,
         'lang_toggle': 'Switch to English',
@@ -108,8 +108,8 @@ const LANG_PACK = {
             - Integrate Client-Server functionality (currently, everything runs on the client, which burdens the user's resources (CPU)).</p>
             <p>In the future, when I have time, I'll continue to work on the project, but for now, I'm hiding from the tax authorities. However, donations are always welcome, so here is my TON wallet address on Telegram: <b>UQAY5_p2plWbshvrITsPk5TJ4CKBneJImdVUV-8-MBOA4Lhh</b></p>
             <div class="welcome-image-container">
-                <img src="https://ltdfoto.ru/images/2025/07/02/image4575f4cfe5ce4ef2.png" alt="image4575f4cfe5ce4ef2.png" border="0" />
-                <img src="https://ltdfoto.ru/images/2025/07/02/9gag_logo.jpg" alt="9gag_logo.jpg" border="0" />
+                <img src="./img/111.png" alt="Chladni Pattern Example" border="0" />
+                <img src="./img/222.jpg" alt="Project Logo" border="0" />
             </div>
         `,
         'lang_toggle': 'Переключить на Русский',
