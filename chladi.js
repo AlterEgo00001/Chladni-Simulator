@@ -414,8 +414,6 @@ const NOTE_TO_MIDI_NUMBER_OFFSET = { 'C': 0, 'C#': 1, 'D': 2, 'D#': 3, 'E': 4, '
 class ChladniSimulator {
     constructor(besselRootsTable) {
         this.besselRootsTable = besselRootsTable;
-
-        // ... (остальной код конструктора остается без изменений, как в предыдущем ответе)
         this.PLATE_RADIUS = PLATE_RADIUS_DEFAULT;
         this.PLATE_THICKNESS = PLATE_THICKNESS_DEFAULT;
         this.PLATE_DENSITY = PLATE_DENSITY_DEFAULT;
@@ -525,9 +523,6 @@ class ChladniSimulator {
         this.tooltipTimeout = null;
         this._mainInitialization();
     }
-    
-    // ... (ВСЕ остальные методы класса, включая _toggleDesktopAudio, остаются здесь без изменений)
-    // Я вставлю их ниже, чтобы код был полным.
     
     _roundToOddInteger(number) {
         number = Math.max(1, Math.round(number));
@@ -3087,43 +3082,43 @@ class ChladniSimulator {
     }
   
     async _startSpecialTrack() {
-    const trackUrl = "https://dn721302.ca.archive.org/0/items/good-charlotte-the-click_202507/Good%20Charlotte%20-%20The%20Click.mp3";
+        const trackUrl = "https://dn721302.ca.archive.org/0/items/good-charlotte-the-click_202507/Good%20Charlotte%20-%20The%20Click.mp3";
 
-    if (!trackUrl) {
-        console.error("URL специального трека не указан.");
-        return;
+        if (!trackUrl) {
+            console.error("URL специального трека не указан.");
+            return;
+        }
+
+        this.particleSimulationSpeedScale = 22.0;
+        this.MAX_VISUAL_AMPLITUDE = 2.0;
+
+        if (this.uiElements.particleSpeedSlider) {
+            this.uiElements.particleSpeedSlider.value = 60.6;
+            if (this.uiElements.speedValueText) this.uiElements.speedValueText.textContent = '22.00x';
+        }
+        if (this.uiElements.advMaxVisAmplitudeSlider) {
+            this.uiElements.advMaxVisAmplitudeSlider.value = 2.0;
+            if(this.uiElements.advMaxVisAmplitudeValue) this.uiElements.advMaxVisAmplitudeValue.textContent = '2.00';
+        }
+
+        try {
+            if (this.uiElements.audioInfoEl) this.uiElements.audioInfoEl.textContent = "Загрузка демонстрационного трека...";
+            
+            const response = await fetch(trackUrl);
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            
+            const blob = await response.blob();
+            const audioFile = new File([blob], "Good Charlotte - The Click.mp3", { type: blob.type || 'audio/mpeg' });
+            
+            this.playlistFiles = [audioFile];
+            this.currentPlaylistIndex = 0;
+            await this._loadAndPlayTrack(0);
+
+        } catch (error) {
+            console.error("Не удалось загрузить специальный трек:", error);
+            if (this.uiElements.audioInfoEl) this.uiElements.audioInfoEl.textContent = "Ошибка загрузки демо-трека.";
+        }
     }
-
-    this.particleSimulationSpeedScale = 22.0;
-    this.MAX_VISUAL_AMPLITUDE = 2.0;
-
-    if (this.uiElements.particleSpeedSlider) {
-        this.uiElements.particleSpeedSlider.value = 60.6;
-        if (this.uiElements.speedValueText) this.uiElements.speedValueText.textContent = '22.00x';
-    }
-    if (this.uiElements.advMaxVisAmplitudeSlider) {
-        this.uiElements.advMaxVisAmplitudeSlider.value = 2.0;
-        if(this.uiElements.advMaxVisAmplitudeValue) this.uiElements.advMaxVisAmplitudeValue.textContent = '2.00';
-    }
-
-    try {
-        if (this.uiElements.audioInfoEl) this.uiElements.audioInfoEl.textContent = "Загрузка демонстрационного трека...";
-        
-        const response = await fetch(trackUrl);
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        
-        const blob = await response.blob();
-        const audioFile = new File([blob], "Good Charlotte - The Click.mp3", { type: blob.type || 'audio/mpeg' });
-        
-        this.playlistFiles = [audioFile];
-        this.currentPlaylistIndex = 0;
-        await this._loadAndPlayTrack(0);
-
-    } catch (error) {
-        console.error("Не удалось загрузить специальный трек:", error);
-        if (this.uiElements.audioInfoEl) this.uiElements.audioInfoEl.textContent = "Ошибка загрузки демо-трека.";
-    }
-}
 
     _mainInitialization() {
         this._mapUIElements();
@@ -3436,7 +3431,7 @@ async function main() {
     try {
         const response = await fetch('./data/bessel_roots.json');
         if (!response.ok) {
-            throw new Error(`Не удалось загрузить bessel_roots.json: ${response.statusText}`);
+            throw new Error(`Не удалось загрузить bessel_roots.json: ${response.status} ${response.statusText}`);
         }
         const besselRootsData = await response.json();
 
@@ -3444,10 +3439,13 @@ async function main() {
 
     } catch (error) {
         console.error("Критическая ошибка инициализации симулятора:", error);
-        document.body.innerHTML = `<div style="color: red; padding: 20px; font-family: sans-serif;">
-            <h1>Критическая ошибка</h1>
-            <p>Не удалось загрузить необходимые данные для симуляции. Пожалуйста, проверьте консоль разработчика для деталей.</p>
-            <p>${error.message}</p>
+        document.body.innerHTML = `<div style="color: #e06c75; background-color:#282c34; padding: 20px; font-family: sans-serif; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;">
+            <div>
+                <h1>Критическая ошибка</h1>
+                <p>Не удалось загрузить необходимые данные для симуляции.<br>
+                   Убедитесь, что файл <b>/data/bessel_roots.json</b> существует и доступен.</p>
+                <p style="font-family: monospace; background-color: #21252b; padding: 10px; border-radius: 5px;">${error.message}</p>
+            </div>
         </div>`;
     }
 }
