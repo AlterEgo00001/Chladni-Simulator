@@ -1,97 +1,80 @@
-/*
- * fdm_update_frag.glsl
- * Фрагментный шейдер для обновления состояния FDM-сетки.
- * 
- * Назначение:
- * Для каждого "пикселя" (ячейки сетки) вычислить его новое смещение
- * на основе состояний соседних ячеек на предыдущем шаге по времени.
- * Это GPU-аналог функции `_updatePlateFDM_CPU`.
- */
+#version 300 es
+precision highp float;
+precision highp sampler2D;
 
-// varying - переменная, полученная из вершинного шейдера.
-varying vec2 vUv;
+uniform sampler2D u_prevState; // Предыдущее состояние FDM
+uniform float u_dt_simulation_step; // Шаг времени симуляции
+uniform vec2 u_resolution; // Разрешение сетки
+uniform float u_D_FLEXURAL_RIGIDITY; // Жёсткость изгиба
+uniform float u_RHO_H_PLATE_SPECIFIC_DENSITY; // Удельная плотность
+uniform int u_exc_mode; // Режим возбуждения (0 - модальный, 1 - точечный)
+uniform float u_mParameter; // Параметр m для модального режима
+uniform float u_excAmp; // Амплитуда возбуждения
+uniform float u_simulationTime; // Текущее время симуляции
+uniform float u_frequency; // Частота возбуждения
 
-// --- Uniforms: Переменные, передаваемые из JavaScript ---
+in vec2 vUv;
+out vec4 fragColor;
 
-// Текстура, хранящая состояние сетки с предыдущего шага.
-// .r канал = u_curr (текущее смещение)
-// .g канал = u_prev (предыдущее смещение)
-uniform sampler2D u_prevState;
-
-// Физические и симуляционные параметры
-uniform float u_dt_simulation_step; // Шаг по времени (dt)
-uniform float u_dx; // Размер ячейки по X
-uniform float u_K_coeff; // Коэффициент жесткости (D*dt^2 / rho*h)
-uniform float u_F_coeff; // Коэффициент силы (dt^2 / rho*h)
-uniform float u_damping; // Коэффициент затухания
-uniform float u_exc_amp; // Амплитуда возбуждения
-uniform float u_frequency; // Текущая частота
-uniform float u_simulationTime; // Общее время симуляции
-uniform vec2 u_resolution; // Размер сетки, например vec2(151.0, 151.0)
-uniform int u_exc_mode; // Режим возбуждения: 0 = модальный, 1 = точечный
-uniform sampler2D u_modalExcitationPattern; // Текстура с модальным узором
-uniform float u_m_param; // Модальный параметр m
+// Константы
+const float PI = 3.141592653589793;
+const float DAMPING_FACTOR = 0.000050; // Фактор затухания из исходного кода
 
 void main() {
-    // Шаг по сетке в UV-координатах (1.0 / размер сетки)
     vec2 texelSize = 1.0 / u_resolution;
+    float h = 2.0 / (u_resolution.x - 1.0); // Шаг сетки (нормализованный)
 
-    // Читаем состояния из соседних пикселей, чтобы получить 13-точечный трафарет
-    // Центральная точка
-    vec2 u_ij_state = texture2D(u_prevState, vUv).rg;
-    float u_ij = u_ij_state.r;
-    float u_ij_prev = u_ij_state.g;
+    // Считываем текущее и соседние перемещения
+    float u_center = texture(u_prevState, vUv).r;
+    float u_right = texture(u_prevState, vUv + vec2(texelSize.x, 0.0)).r;
+    float u_left = texture(u_prevState, vUv - vec2(texelSize.x, 0.0)).r;
+    float u_up = texture(u_prevState, vUv + vec2(0.0, texelSize.y)).r;
+    float u_down = texture(u_prevState, vUv - vec2(0.0, texelSize.y)).r;
+    float u_right2 = texture(u_prevState, vUv + vec2(2.0 * texelSize.x, 0.0)).r;
+    float u_left2 = texture(u_prevState, vUv - vec2(2.0 * texelSize.x, 0.0)).r;
+    float u_up2 = texture(u_prevState, vUv + vec2(0.0, 2.0 * texelSize.y)).r;
+    float u_down2 = texture(u_prevState, vUv - vec2(0.0, 2.0 * texelSize.y)).r;
+    float u_right_up = texture(u_prevState, vUv + vec2(texelSize.x, texelSize.y)).r;
+    float u_right_down = texture(u_prevState, vUv + vec2(texelSize.x, -texelSize.y)).r;
+    float u_left_up = texture(u_prevState, vUv + vec2(-texelSize.x, texelSize.y)).r;
+    float u_left_down = texture(u_prevState, vUv + vec2(-texelSize.x, -texelSize.y)).r;
 
-    // Соседи первого порядка
-    float u_ip1j = texture2D(u_prevState, vUv + vec2(0.0, texelSize.y)).r;
-    float u_im1j = texture2D(u_prevState, vUv - vec2(0.0, texelSize.y)).r;
-    float u_ijp1 = texture2D(u_prevState, vUv + vec2(texelSize.x, 0.0)).r;
-    float u_ijm1 = texture2D(u_prevState, vUv - vec2(texelSize.x, 0.0)).r;
+    // Вычисляем лапласиан (∇²u)
+    float laplacian = (u_right + u_left + u_up + u_down - 4.0 * u_center) / (h * h);
 
-    // Соседи по диагонали
-    float u_ip1jp1 = texture2D(u_prevState, vUv + texelSize).r;
-    float u_ip1jm1 = texture2D(u_prevState, vUv + vec2(-texelSize.x, texelSize.y)).r;
-    float u_im1jp1 = texture2D(u_prevState, vUv + vec2(texelSize.x, -texelSize.y)).r;
-    float u_im1jm1 = texture2D(u_prevState, vUv - texelSize).r;
+    // Вычисляем бихармонический оператор (∇⁴u) с 13-точечным шаблоном
+    float biharmonic = (
+        20.0 * u_center -
+        8.0 * (u_right + u_left + u_up + u_down) +
+        2.0 * (u_right_up + u_right_down + u_left_up + u_left_down) +
+        u_right2 + u_left2 + u_up2 + u_down2
+    ) / (h * h * h * h);
 
-    // Соседи второго порядка
-    float u_ip2j = texture2D(u_prevState, vUv + vec2(0.0, 2.0 * texelSize.y)).r;
-    float u_im2j = texture2D(u_prevState, vUv - vec2(0.0, 2.0 * texelSize.y)).r;
-    float u_ijp2 = texture2D(u_prevState, vUv + vec2(2.0 * texelSize.x, 0.0)).r;
-    float u_ijm2 = texture2D(u_prevState, vUv - vec2(2.0 * texelSize.x, 0.0)).r;
-    
-    // Вычисляем бигармонический оператор (дискретный аналог двойного Лапласиана)
-    // Эта формула идентична той, что была на CPU
-    float inv_dx4 = 1.0 / (u_dx * u_dx * u_dx * u_dx);
-    float biharmonic = (20.0 * u_ij - 8.0 * (u_ip1j + u_im1j + u_ijp1 + u_ijm1) + 2.0 * (u_ip1jp1 + u_ip1jm1 + u_im1jp1 + u_im1jm1) + (u_ip2j + u_im2j + u_ijp2 + u_ijm2)) * inv_dx4;
-
-    // Вычисляем внешнюю силу возбуждения
-    float excForce = 0.0;
-    float timeSine = sin(2.0 * 3.1415926535 * u_frequency * u_simulationTime);
-
-    if (u_exc_mode == 0) { // Модальный режим
-        float patternValue = texture2D(u_modalExcitationPattern, vUv).r;
-        vec2 centered_uv = vUv - 0.5;
-        float theta = atan(centered_uv.y, centered_uv.x);
-        excForce = u_exc_amp * timeSine * patternValue * cos(u_m_param * theta);
-    } else { // Точечный режим (в центре)
-        vec2 center_dist = vUv - vec2(0.5);
-        float distSq = dot(center_dist, center_dist);
-        float excRadSq = 0.0016; // (0.04)^2, радиус возбуждения в UV-координатах
-        if (distSq <= excRadSq) {
-            excForce = u_exc_amp * timeSine * exp(-distSq / (excRadSq * 0.5));
+    // Вычисляем возбуждающую силу
+    float excitation = 0.0;
+    if (u_exc_mode == 0) {
+        // Модальное возбуждение
+        vec2 pos = (vUv - 0.5) * 2.0; // Нормализованные координаты [-1, 1]
+        float r = length(pos);
+        float theta = atan(pos.y, pos.x);
+        float besselValue = cos(u_mParameter * theta); // Упрощённая функция Бесселя для мод
+        excitation = u_excAmp * sin(2.0 * PI * u_frequency * u_simulationTime) * besselValue;
+    } else {
+        // Точечное возбуждение (в центре)
+        vec2 pos = vUv - 0.5;
+        if (length(pos) < 0.05) {
+            excitation = u_excAmp * sin(2.0 * PI * u_frequency * u_simulationTime);
         }
     }
-    
-    // Основная формула метода конечных разностей для обновления смещения
-    float u_next = (2.0 * u_ij - u_ij_prev) - u_K_coeff * biharmonic + u_F_coeff * excForce;
-    
-    // Применяем затухание
-    u_next *= (1.0 - u_damping);
 
-    // Записываем результат в выходную текстуру.
-    // .r (красный канал) будет хранить новое смещение u_next.
-    // .g (зеленый канал) будет хранить текущее смещение u_ij, которое станет u_prev на следующем шаге.
-    // .b и .a не используются.
-    gl_FragColor = vec4(u_next, u_ij, 0.0, 1.0);
+    // Уравнение волны: ∂²u/∂t² = -(D/ρh) * ∇⁴u - γ * ∂u/∂t + f
+    float accel = -u_D_FLEXURAL_RIGIDITY / u_RHO_H_PLATE_SPECIFIC_DENSITY * biharmonic -
+                  DAMPING_FACTOR * u_center + excitation;
+
+    // Обновление перемещения (метод конечных разностей)
+    float u_new = 2.0 * u_center - texture(u_prevState, vUv).g +
+                  u_dt_simulation_step * u_dt_simulation_step * accel;
+
+    // Сохранение нового состояния: r - u(t), g - u(t-1), b - u(t-2)
+    fragColor = vec4(u_new, u_center, texture(u_prevState, vUv).r, 1.0);
 }
