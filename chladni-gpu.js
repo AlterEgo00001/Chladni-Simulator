@@ -112,7 +112,6 @@ class ChladniSimulatorGPU {
     constructor(loadedAssets) {
         this.besselRootsTable = loadedAssets.besselRootsTable;
         this.shaders = loadedAssets.shaders;
-
         this.PLATE_RADIUS = PLATE_RADIUS_DEFAULT;
         this.PLATE_THICKNESS = PLATE_THICKNESS_DEFAULT;
         this.PLATE_DENSITY = PLATE_DENSITY_DEFAULT;
@@ -241,7 +240,7 @@ class ChladniSimulatorGPU {
         this.camera.position.set(0, this.PLATE_RADIUS * 1.6, this.PLATE_RADIUS * 2.0);
         this.camera.lookAt(0, 0, 0);
         const container = document.getElementById('scene-container');
-        this.renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance", context: container.getContext('webgl2') });
+        this.renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         this.renderer.setPixelRatio(window.devicePixelRatio);
         this.renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -298,18 +297,18 @@ class ChladniSimulatorGPU {
         const particleTexSize = Math.ceil(Math.sqrt(this.MAX_PARTICLE_COUNT_USER_SETTING));
         this.particleTexSize = particleTexSize;
 
-        const particleRtOptions = { ...rtOptions, minFilter: THREE.NearestFilter, magFilter: THREE.NearestFilter };
+        const particleRtOptions = { ...rtOptions, minFilter: THREE.NearestFilter, magFilter: THREE.NearestFilter, format: THREE.RGBAFormat };
         this.particlePosA = new THREE.WebGLRenderTarget(particleTexSize, particleTexSize, particleRtOptions);
         this.particlePosB = new THREE.WebGLRenderTarget(particleTexSize, particleTexSize, particleRtOptions);
         this.particleVelA = new THREE.WebGLRenderTarget(particleTexSize, particleTexSize, particleRtOptions);
         this.particleVelB = new THREE.WebGLRenderTarget(particleTexSize, particleTexSize, particleRtOptions);
         
         this.multiTargetParticle = new THREE.WebGLMultipleRenderTargets(particleTexSize, particleTexSize, 2);
-        this.multiTargetParticle.texture[0].name = 'particlePositions';
-        this.multiTargetParticle.texture[1].name = 'particleVelocities';
         for(let i = 0; i < 2; i++){
             this.multiTargetParticle.texture[i].minFilter = THREE.NearestFilter;
             this.multiTargetParticle.texture[i].magFilter = THREE.NearestFilter;
+            this.multiTargetParticle.texture[i].type = THREE.FloatType;
+            this.multiTargetParticle.texture[i].format = THREE.RGBAFormat;
         }
 
         this.fdmUpdateMaterial = new THREE.ShaderMaterial({
@@ -350,6 +349,7 @@ class ChladniSimulatorGPU {
                 u_maxNeighbors: { value: 0 },
                 u_activeParticleCount: { value: 0 },
                 u_particleTexSize: { value: new THREE.Vector2(particleTexSize, particleTexSize)},
+                u_gridSize: { value: 0.0 },
             },
             vertexShader: this.shaders.common_vertex,
             fragmentShader: this.shaders.particle_update_frag,
@@ -366,13 +366,11 @@ class ChladniSimulatorGPU {
 
         const particleCount = this.MAX_PARTICLE_COUNT_USER_SETTING;
         const uvs = new Float32Array(particleCount * 2);
-        const particleIndices = new Float32Array(particleCount);
         for (let i = 0; i < particleCount; i++) {
             const u = (i % this.particleTexSize) / this.particleTexSize;
             const v = Math.floor(i / this.particleTexSize) / this.particleTexSize;
-            uvs[i * 2] = u;
-            uvs[i * 2 + 1] = v;
-            particleIndices[i] = i;
+            uvs[i * 2] = u + 0.5 / this.particleTexSize;
+            uvs[i * 2 + 1] = v + 0.5 / this.particleTexSize;
         }
         
         const geometry = new THREE.BufferGeometry();
@@ -456,6 +454,9 @@ class ChladniSimulatorGPU {
     }
 
     _updateModalExcitationPatternCPU() {
+        if (this.modalExcitationTexture) {
+            this.modalExcitationTexture.dispose();
+        }
         const size = this.currentGridSize;
         const data = new Float32Array(size * size * 4);
         const b_zero = this._getBesselZero(this.mParameter, this.nParameter);
@@ -473,14 +474,13 @@ class ChladniSimulatorGPU {
                     }
                     const index = (i * size + j) * 4;
                     data[index] = val;
-                    data[index+1] = val;
-                    data[index+2] = val;
+                    data[index+1] = 0.0;
+                    data[index+2] = 0.0;
                     data[index+3] = 1.0;
                 }
             }
         }
         
-        if (this.modalExcitationTexture) this.modalExcitationTexture.dispose();
         this.modalExcitationTexture = new THREE.DataTexture(data, size, size, THREE.RGBAFormat, THREE.FloatType);
         this.modalExcitationTexture.needsUpdate = true;
     }
@@ -523,8 +523,8 @@ class ChladniSimulatorGPU {
         uniforms.u_resolution.value.set(this.currentGridSize, this.currentGridSize);
         uniforms.u_dx.value = this.dx;
         uniforms.u_dt_simulation_step.value = this.dt_simulation_step;
-        uniforms.u_K_coeff.value = K_coeff;
-        uniforms.u_F_coeff.value = F_coeff;
+        uniforms.u_K_coeff.value = isFinite(K_coeff) ? K_coeff : 0.0;
+        uniforms.u_F_coeff.value = isFinite(F_coeff) ? F_coeff : 0.0;
         uniforms.u_damping.value = this.FDM_DAMPING_FACTOR;
         uniforms.u_exc_mode.value = this.drivingMechanism === 'modal' ? 0 : 1;
         uniforms.u_mParameter.value = this.mParameter;
@@ -565,6 +565,7 @@ class ChladniSimulatorGPU {
         uniforms.u_repulsionStrength.value = this.PARTICLE_REPULSION_STRENGTH;
         uniforms.u_maxNeighbors.value = this.MAX_REPULSION_NEIGHBORS_CHECK;
         uniforms.u_activeParticleCount.value = this.PARTICLE_COUNT;
+        uniforms.u_gridSize.value = this.currentGridSize;
         
         this.gpgpuQuad.material = this.particleUpdateMaterial;
         
@@ -749,7 +750,7 @@ class ChladniSimulatorGPU {
     _getResonantFrequencyKirchhoff(mVal, nVal) { const lambda_mn = this._getBesselZero(mVal, nVal); if (lambda_mn === null || lambda_mn <= 0) return 20; this._updatePhysicalConstants(); const freq = (Math.pow(lambda_mn / this.PLATE_RADIUS, 2) / (2 * Math.PI)) * Math.sqrt(this.D_FLEXURAL_RIGIDITY / this.RHO_H_PLATE_SPECIFIC_DENSITY); return Math.max(1, (isFinite(freq) ? freq : 20)); }
     _setupPlateParametersForCurrentMode() { if (this.drivingMechanism === 'modal') { this.currentFrequency = this._getResonantFrequencyKirchhoff(this.mParameter, this.nParameter); this.actualAppliedFrequency = this.currentFrequency; } else if (this.drivingMechanism === 'piano') { if (this.activePianoKeys.size > 0 || this.keyboardPressedKeys.size > 0) { let sumFreq = 0; let count = 0; const allPressedNotes = new Set([...this.activePianoKeys, ...Array.from(this.keyboardPressedKeys).map(kc => this.keyToNoteMapping[kc]).filter(Boolean)]); allPressedNotes.forEach(noteNameOrCode => { let note = noteNameOrCode; if (note.startsWith("Key")) note = this.keyToNoteMapping[noteNameOrCode]; if (NOTE_TO_MIDI_NUMBER_OFFSET.hasOwnProperty(note) || (note.endsWith('5') && NOTE_TO_MIDI_NUMBER_OFFSET.hasOwnProperty(note.slice(0, -1)))) { let octaveOffset = this.currentPianoOctave; let baseNoteName = note; if (note === 'C5') { octaveOffset = this.currentPianoOctave + 1; baseNoteName = 'C'; } else if (note.length === 2 && note[1] === '5' && NOTE_TO_MIDI_NUMBER_OFFSET.hasOwnProperty(note[0])) { octaveOffset = this.currentPianoOctave + 1; baseNoteName = note[0]; } const baseMidiNum = NOTE_TO_MIDI_NUMBER_OFFSET[baseNoteName] + (octaveOffset * 12); sumFreq += this._frequencyFromMIDINoteNumber(baseMidiNum); count++; } }); this.actualAppliedFrequency = count > 0 ? sumFreq / count : this.currentFrequency; } else { this.actualAppliedFrequency = this.currentFrequency; } } else if (this.drivingMechanism === 'audio' || this.drivingMechanism === 'microphone' || this.drivingMechanism === 'desktop_audio') { this.actualAppliedFrequency = this.currentFrequency; } else { this.actualAppliedFrequency = this.currentFrequency; } if (this.uiElements.particleSpeedSlider) { const v = parseFloat(this.uiElements.particleSpeedSlider.value); const MAX_SIM_SPEED = 100.0; const MIN_SIM_SPEED = 0.1; const MID_SLIDER_VALUE = 50.0; if (v <= MID_SLIDER_VALUE) this.particleSimulationSpeedScale = MIN_SIM_SPEED + (1.0 - MIN_SIM_SPEED) * (v / MID_SLIDER_VALUE); else this.particleSimulationSpeedScale = 1.0 + (MAX_SIM_SPEED - 1.0) * ((v - MID_SLIDER_VALUE) / (100.0 - MID_SLIDER_VALUE)); this.particleSimulationSpeedScale = Math.max(MIN_SIM_SPEED, Math.min(this.particleSimulationSpeedScale, MAX_SIM_SPEED)); if (this.uiElements.speedValueText) this.uiElements.speedValueText.textContent = `${this.particleSimulationSpeedScale.toFixed(2)}x`; } if (isNaN(this.actualAppliedFrequency) || this.actualAppliedFrequency <= 0 || !isFinite(this.actualAppliedFrequency)) { this.actualAppliedFrequency = 20; } this._updateFrequencyControlsUI(); }
     _updateDynamicParticleDensity() { if (!this.enableDynamicParticleDensity || (this.drivingMechanism !== 'audio' && this.drivingMechanism !== 'microphone' && this.drivingMechanism !== 'desktop_audio') || (!this.isAudioFilePlaying && !this.isMicrophoneEnabled && !this.isDesktopAudioEnabled) || this.isAudioFilePaused || !this.fftAnalyserNode || !this.mainAudioContext || this.mainAudioContext.state !== 'running') { return; } const currentTime = this.mainAudioContext.currentTime; if (currentTime - this.lastParticleCountUpdateTime < (PARTICLE_COUNT_UPDATE_THROTTLE_MS / 1000.0)) { return; } this.lastParticleCountUpdateTime = currentTime; this.fftAnalyserNode.getByteFrequencyData(this.frequencyData); let sumVol = 0; for (let i = 0; i < this.frequencyData.length; i++) { sumVol += this.frequencyData[i]; } const avgVol = this.frequencyData.length > 0 ? sumVol / this.frequencyData.length : 0; const volumeFactor = THREE.MathUtils.clamp(avgVol / 128.0, 0.05, 1.5); let newParticleCount = MIN_DYNAMIC_PARTICLE_COUNT + (this.MAX_PARTICLE_COUNT_USER_SETTING - MIN_DYNAMIC_PARTICLE_COUNT) * volumeFactor; newParticleCount = Math.round(THREE.MathUtils.clamp(newParticleCount, MIN_DYNAMIC_PARTICLE_COUNT, this.MAX_PARTICLE_COUNT_USER_SETTING) / 100) * 100; if (Math.abs(newParticleCount - this.PARTICLE_COUNT) > this.PARTICLE_COUNT * 0.05 || (newParticleCount > this.PARTICLE_COUNT && newParticleCount < this.MAX_PARTICLE_COUNT_USER_SETTING) || (newParticleCount < this.PARTICLE_COUNT && newParticleCount > MIN_DYNAMIC_PARTICLE_COUNT)) { this.PARTICLE_COUNT = newParticleCount; } }
-    _setupWebAudioSystem() { try { this.mainAudioContext = new (window.AudioContext || window.webkitAudioContext)(); if (!this.mainAudioContext) throw new Error("AudioContext failed."); this.mainAudioContext.addEventListener('statechange', this._handleAudioContextStateChange.bind(this)); const resume = async () => { if (this.mainAudioContext?.state === 'suspended') await this.mainAudioContext.resume(); document.removeEventListener('click', resume); document.removeEventListener('touchstart', resume); document.removeEventListener('keydown', resume); }; document.addEventListener('click', resume, { once: true }); document.addEventListener('touchstart', resume, { once: true }); document.addEventListener('keydown', resume, { once: true }); this.pitchDetectorAnalyserNode = this.mainAudioContext.createAnalyser(); this.pitchDetectorAnalyserNode.fftSize = 2048; this.pitchDetectorAnalyserNode.smoothingTimeConstant = 0; this.pitchDetectorSignalBuffer = new Float32Array(this.pitchDetectorAnalyserNode.fftSize); const createBpmAnalyzer = () => { const analyser = this.mainAudioContext.createAnalyser(); analyser.fftSize = 256; analyser.smoothingTimeConstant = 0.3; return analyser; }; this.bpmAnalyzers.low.analyser = createBpmAnalyzer(); this.bpmAnalyzers.mid.analyser = createBpmAnalyzer(); this.bpmAnalyzers.high.analyser = createBpmAnalyzer(); this.fftAnalyserNode = this.mainAudioContext.createAnalyser(); this.fftAnalyserNode.fftSize = 256; this.frequencyData = new Uint8Array(this.fftAnalyserNode.frequencyBinCount); const sr = this.mainAudioContext.sampleRate; this.MIN_SAMPLES_FOR_PITCH_DETECTION = Math.max(4, Math.floor(sr / PITCH_MAX_FREQUENCY_HZ)); this.MAX_SAMPLES_FOR_PITCH_DETECTION = Math.min(Math.floor(this.pitchDetectorAnalyserNode.fftSize / 2), Math.floor(sr / PITCH_MIN_FREQUENCY_HZ)); } catch (e) { if (this.uiElements.toggleSoundButton) { this.uiElements.toggleSoundButton.textContent = 'Звук: Ошибка'; this.uiElements.toggleSoundButton.disabled = true; } if (this.uiElements.audioFileInput) this.uiElements.audioFileInput.disabled = true; if (this.uiElements.toggleMicrophoneButton) { this.uiElements.toggleMicrophoneButton.textContent = 'Микрофон: Ошибка'; this.uiElements.toggleMicrophoneButton.disabled = true; } if (this.uiElements.toggleDesktopAudioButton) { this.uiElements.toggleDesktopAudioButton.textContent = 'Перехват: Ошибка'; this.uiElements.toggleDesktopAudioButton.disabled = true; } alert("Ошибка: Web Audio API не доступен."); } }
+    _setupWebAudioSystem() { try { this.mainAudioContext = new (window.AudioContext || window.webkitAudioContext)(); if (!this.mainAudioContext) throw new Error("AudioContext creation failed."); this.mainAudioContext.addEventListener('statechange', this._handleAudioContextStateChange.bind(this)); const resume = async () => { if (this.mainAudioContext?.state === 'suspended') await this.mainAudioContext.resume(); document.removeEventListener('click', resume); document.removeEventListener('touchstart', resume); document.removeEventListener('keydown', resume); }; document.addEventListener('click', resume, { once: true }); document.addEventListener('touchstart', resume, { once: true }); document.addEventListener('keydown', resume, { once: true }); this.pitchDetectorAnalyserNode = this.mainAudioContext.createAnalyser(); this.pitchDetectorAnalyserNode.fftSize = 2048; this.pitchDetectorAnalyserNode.smoothingTimeConstant = 0; this.pitchDetectorSignalBuffer = new Float32Array(this.pitchDetectorAnalyserNode.fftSize); const createBpmAnalyzer = () => { const analyser = this.mainAudioContext.createAnalyser(); analyser.fftSize = 256; analyser.smoothingTimeConstant = 0.3; return analyser; }; this.bpmAnalyzers.low.analyser = createBpmAnalyzer(); this.bpmAnalyzers.mid.analyser = createBpmAnalyzer(); this.bpmAnalyzers.high.analyser = createBpmAnalyzer(); this.fftAnalyserNode = this.mainAudioContext.createAnalyser(); this.fftAnalyserNode.fftSize = 256; this.frequencyData = new Uint8Array(this.fftAnalyserNode.frequencyBinCount); const sr = this.mainAudioContext.sampleRate; this.MIN_SAMPLES_FOR_PITCH_DETECTION = Math.max(4, Math.floor(sr / PITCH_MAX_FREQUENCY_HZ)); this.MAX_SAMPLES_FOR_PITCH_DETECTION = Math.min(Math.floor(this.pitchDetectorAnalyserNode.fftSize / 2), Math.floor(sr / PITCH_MIN_FREQUENCY_HZ)); } catch (e) { if (this.uiElements.toggleSoundButton) { this.uiElements.toggleSoundButton.textContent = 'Звук: Ошибка'; this.uiElements.toggleSoundButton.disabled = true; } if (this.uiElements.audioFileInput) this.uiElements.audioFileInput.disabled = true; if (this.uiElements.toggleMicrophoneButton) { this.uiElements.toggleMicrophoneButton.textContent = 'Микрофон: Ошибка'; this.uiElements.toggleMicrophoneButton.disabled = true; } if (this.uiElements.toggleDesktopAudioButton) { this.uiElements.toggleDesktopAudioButton.textContent = 'Перехват: Ошибка'; this.uiElements.toggleDesktopAudioButton.disabled = true; } alert("Ошибка: Web Audio API не доступен."); } }
     _handleAudioContextStateChange() { }
     _setupSubtitleSystem() { this.subtitleContainer = this.uiElements['subtitle-container']; if (!this.subtitleContainer) { return; } this.currentSubtitles = []; this.subtitleContainer.textContent = ''; this.subtitleContainer.classList.remove('visible'); }
     _getFrequencyDependentExcitationAmplitude(freq) { const base = this.EXCITATION_FREQ_DEP_BASE_AMP; if (freq <= 0 || !isFinite(freq)) return base * this.EXCITATION_FREQ_DEP_MAX_FACTOR; if (freq < this.EXCITATION_FREQ_DEP_LOW_CUTOFF) return base * this.EXCITATION_FREQ_DEP_MAX_FACTOR; else if (freq < this.EXCITATION_FREQ_DEP_HIGH_CUTOFF) { const factorRange = this.EXCITATION_FREQ_DEP_MAX_FACTOR - this.EXCITATION_FREQ_DEP_MIN_FACTOR; const freqRange = this.EXCITATION_FREQ_DEP_HIGH_CUTOFF - this.EXCITATION_FREQ_DEP_LOW_CUTOFF; if (freqRange <= 0) return base * this.EXCITATION_FREQ_DEP_MAX_FACTOR; return base * (this.EXCITATION_FREQ_DEP_MAX_FACTOR - factorRange * ((freq - this.EXCITATION_FREQ_DEP_LOW_CUTOFF) / freqRange)); } else return base * this.EXCITATION_FREQ_DEP_MIN_FACTOR; }
@@ -801,7 +802,14 @@ class ChladniSimulatorGPU {
     _handleWindowResize() { if (this.camera && this.renderer) { this.camera.aspect = window.innerWidth / window.innerHeight; this.camera.updateProjectionMatrix(); this.renderer.setSize(window.innerWidth, window.innerHeight); } }
     _parseLRC(lrcText) { if (!lrcText) return []; const lines = lrcText.split('\n'); const subtitles = []; const timeRegex = /\[(\d{2}):(\d{2})\.(\d{2,3})\]/; lines.forEach(line => { const match = line.match(timeRegex); if (match) { const minutes = parseInt(match[1], 10); const seconds = parseInt(match[2], 10); const milliseconds = parseInt(match[3].padEnd(3, '0'), 10); const time = minutes * 60 + seconds + milliseconds / 1000; const text = line.replace(timeRegex, '').trim(); if (text) { subtitles.push({ time, text }); } } }); subtitles.sort((a, b) => a.time - b.time); return subtitles; }
     _parseTrackInfoFromName(fileName) { let cleanedName = fileName.replace(/\.[^/.]+$/, "").replace(/_/g, ' '); cleanedName = cleanedName.replace(/^♫\s*/, ''); cleanedName = cleanedName.replace(/\s*\[.*?\]\s*/g, ' ').replace(/\s*\(.*?\)\s*/g, ' ').replace(/\s*\{.*?\}\s*/g, ' ').trim(); cleanedName = cleanedName.replace(/^\s*\d+[\s.-]*/, ''); const junkWords = ['official', 'video', 'lyrics', 'remix', 'live', 'acoustic', 'explicit', 'clean', 'audio', 'hq']; const junkRegex = new RegExp(`\\b(${junkWords.join('|')})\\b`, 'gi'); cleanedName = cleanedName.replace(junkRegex, '').replace(/\s+/g, ' ').trim(); const parts = cleanedName.split(' - '); let artist = ''; let title = ''; if (parts.length >= 2) { artist = parts[0].trim(); title = parts.slice(1).join(' - ').trim(); } else { title = cleanedName.trim(); } return { artist, title }; }
-    _readID3Tags(file) { return new Promise((resolve, reject) => { window.jsmediatags.read(file, { onSuccess: (tag) => resolve(tag.tags), onError: (error) => reject(error) }); }); }
+    _readID3Tags(file) {
+        return new Promise((resolve, reject) => {
+            window.jsmediatags.read(file, {
+                onSuccess: (tag) => resolve(tag.tags),
+                onError: (error) => reject(error)
+            });
+        });
+    }
     async _findAndLoadLyrics(file, fetchID) { const lyricsEl = this.uiElements.lyricsInfoEl; lyricsEl.textContent = 'Поиск субтитров...'; let artist, title; try { const tags = await this._readID3Tags(file); if (fetchID !== this.activeFetchID) return; const lyricsData = tags.lyrics || tags.USLT; if (lyricsData) { const lrcText = typeof lyricsData === 'string' ? lyricsData : lyricsData.lyrics; this.currentSubtitles = this._parseLRC(lrcText); if (this.currentSubtitles.length > 0) { lyricsEl.textContent = 'Субтитры найдены (встроены).'; if (this.isSubtitlesEnabled) this.subtitleContainer.classList.add('visible'); return; } } artist = tags.artist?.trim(); title = tags.title?.trim(); } catch (error) { } if (fetchID !== this.activeFetchID) return; if (!artist || !title) { const infoFromName = this._parseTrackInfoFromName(file.name); artist = infoFromName.artist || artist; title = infoFromName.title || title; } if (title) { await this._fetchLyricsFromLrclib(artist || '', title, fetchID); } else { lyricsEl.textContent = 'Не удалось найти метаданные для поиска.'; } }
     async _fetchLyricsFromLrclib(artist, track, requestIndex) { if (this.uiElements.lyricsInfoEl) { this.uiElements.lyricsInfoEl.textContent = 'Идет поиск текста в сети...'; } const attempts = [{ artist, track }, { artist, track: track.replace(/\s*\(.*?\)\s*/g, '').trim() }, { artist, track: track.toLowerCase() }, { artist: artist.toLowerCase(), track: track.toLowerCase() }]; if (artist) { attempts.push({ artist: '', track }); } for (const attempt of attempts) { if (this.activeFetchID !== requestIndex) return; if (!attempt.track) continue; const url = `https://lrclib.net/api/get?artist_name=${encodeURIComponent(attempt.artist)}&track_name=${encodeURIComponent(attempt.track)}`; try { const response = await fetch(url, { signal: AbortSignal.timeout(8000) }); if (this.activeFetchID !== requestIndex) return; if (!response.ok) continue; const data = await response.json(); if (data && data.syncedLyrics) { this.currentSubtitles = this._parseLRC(data.syncedLyrics); if (this.currentSubtitles.length > 0) { if (this.uiElements.lyricsInfoEl) { this.uiElements.lyricsInfoEl.textContent = 'Субтитры найдены (lrclib.net)'; } if (this.isSubtitlesEnabled) this.subtitleContainer.classList.add('visible'); return; } } } catch (e) { } } if (this.activeFetchID === requestIndex && this.uiElements.lyricsInfoEl) { this.uiElements.lyricsInfoEl.textContent = 'Субтитры не найдены.'; } }
     _updateSubtitles() { if (!this.audioElement || this.currentSubtitles.length === 0) { if (this.subtitleContainer.textContent !== '') this.subtitleContainer.textContent = ''; return; } const currentTime = this.audioElement.currentTime; let low = 0; let high = this.currentSubtitles.length - 1; let bestIndex = -1; while (low <= high) { const mid = Math.floor((low + high) / 2); if (this.currentSubtitles[mid].time <= currentTime) { bestIndex = mid; low = mid + 1; } else { high = mid - 1; } } const newText = (bestIndex !== -1) ? this.currentSubtitles[bestIndex].text : ''; if (this.subtitleContainer.textContent !== newText) { this.subtitleContainer.textContent = newText; if (this.isSubtitlesEnabled) { this.subtitleContainer.classList.toggle('visible', newText !== ''); } } }
@@ -809,7 +817,8 @@ class ChladniSimulatorGPU {
 
 async function main() {
     const canvas = document.createElement('canvas');
-    if (!canvas.getContext('webgl2')) {
+    const gl = canvas.getContext('webgl2');
+    if (!gl) {
         const errorOverlay = document.getElementById('webgl-error-overlay');
         if (errorOverlay) {
             errorOverlay.style.display = 'flex';
