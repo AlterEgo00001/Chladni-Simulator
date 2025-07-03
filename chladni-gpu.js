@@ -12,7 +12,7 @@ const LANG_PACK = {
             <p>Отдельно спасибо: Даниилу Дмитриевичу =)</p>
             <p>Для связи со мной <b>https://t.me/unknown_sector</b></p>
             <p><b>Что я не успел сделать, но сделаю:</b><br>
-            - Перенести на Github и развернуть на Github Pages. (Выполнено) <br>
+            - Перенести на Github и развернуть на Github Pages.<br>
             - Перенести на Electron для реализации проекта с использованием GPU (Win/Linux).<br>
             - Интегрировать возможность работы Client-Server (сейчас всё выполняется у клиента, и это нагружает ресурсы пользователя).</p>
             <p>В будущем, когда будет время, буду дорабатывать проект, а пока я прячусь от налоговой. Но донат никто не отменял, поэтому вот адрес моего кошелька TON в телеге: <b>UQAY5_p2plWbshvrITsPk5TJ4CKBneJImdVUV-8-MBOA4Lhh</b></p>
@@ -103,7 +103,7 @@ const LANG_PACK = {
             <p>Special thanks to: Daniil Dmitrievich =)</p>
             <p>4 contact with me: <b>https://t.me/unknown_sector</b></p>
             <p><b>What I haven't done yet, but will do:</b><br>
-            - Move to GitHub and deploy on GitHub Pages. (DONE)<br>
+            - Move to GitHub and deploy on GitHub Pages.<br>
             - Port to Electron to enable project implementation using GPU (Win/Linux).<br>
             - Integrate Client-Server functionality (currently, everything runs on the client, which burdens the user's resources (CPU)).</p>
             <p>In the future, when I have time, I'll continue to work on the project, but for now, I'm hiding from the tax authorities. However, donations are always welcome, so here is my TON wallet address on Telegram: <b>UQAY5_p2plWbshvrITsPk5TJ4CKBneJImdVUV-8-MBOA4Lhh</b></p>
@@ -2432,7 +2432,9 @@ class ChladniSimulator {
         this._initializeFDM_CPU_State();
         this._initializeFDMArraysAndBuffers();
         this.simulationTime = 0;
-        if (!keepParticlePositions) this._resetParticlePositionsAndVelocities();
+        if (!keepParticlePositions) {
+            this._resetParticlePositionsAndVelocities();
+        }
         this._updateModalParametersUI();
 
         if (newMechanism === 'audio' || newMechanism === 'microphone' || newMechanism === 'desktop_audio') {
