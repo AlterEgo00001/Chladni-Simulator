@@ -1,8 +1,14 @@
 #version 300 es
-in vec4 position;
+// Общий вершинный шейдер для GPGPU-проходов
+
+in vec3 position;
 out vec2 vUv;
 
 void main() {
-    vUv = position.xy * 0.5 + 0.5; // Преобразование координат в [0,1]
-    gl_Position = position;
+    // Передача UV-координат (в диапазоне [0,1]) во фрагментный шейдер.
+    // Координаты вершины (-1 to 1) масштабируются и сдвигаются.
+    vUv = position.xy * 0.5 + 0.5;
+    
+    // Позиция для GPGPU-рендеринга - полноэкранный квад
+    gl_Position = vec4(position, 1.0);
 }
