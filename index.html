@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ИЗМЕНЕНО: Обновлен заголовок для GPU-версии -->
-    <title>Симулятор узоров Хладни v7.3.55 (GPU Edition)</title>
+    <title>Симулятор узоров Хладни v7.3.55 (Интерактивное Обучение)</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,10 +11,13 @@
     
     <link rel="stylesheet" href="styles.css">
     
-    <!-- Локальные библиотеки остаются без изменений -->
+    <!-- Ссылка на локальный jsmediatags -->
     <script src="./libs/jsmediatags.min.js"></script>
+    
+    <!-- Ссылка на локальный es-module-shims -->
     <script async src="./libs/es-module-shims.js" crossorigin="anonymous"></script>
     
+    <!-- Обновленный importmap для локальных файлов -->
     <script type="importmap">
       {
         "imports": {
@@ -26,15 +28,6 @@
     </script>
 </head>
 <body>
-    <!-- ДОБАВЛЕНО: Контейнер для ошибки отсутствия поддержки WebGL 2 -->
-    <div id="webgl-error-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(18, 18, 18, 0.95); z-index: 10000; align-items: center; justify-content: center;">
-        <div style="color: #e06c75; background-color: #282c34; padding: 30px; border-radius: 12px; border: 1px solid #e06c75; font-family: 'Roboto', sans-serif; text-align: center; max-width: 600px;">
-            <h1 style="color: #e06c75; margin-top: 0;">Ошибка: WebGL 2 не поддерживается</h1>
-            <p style="color: #d1d5db; line-height: 1.6;">Для работы GPU-версии симулятора требуется поддержка WebGL 2.<br>Пожалуйста, обновите ваш браузер (рекомендуются последние версии Chrome, Firefox, Edge) или используйте устройство с более современной видеокартой.</p>
-        </div>
-    </div>
-
-    <!-- Вся остальная HTML-структура остается без изменений -->
     <div id="tooltip"></div>
 
     <div id="welcome-overlay" class="overlay hidden">
@@ -342,9 +335,8 @@
         <button id="resetAdvancedButton" data-lang-key="btn_reset_adv">Сбросить продвинутые настройки</button>
     </div>
 
-    <!-- Ссылка на локальный bessel.js без изменений -->
+    <!-- Ссылка на локальный bessel.js -->
     <script src="./libs/bessel.js"></script>
-    <!-- ИЗМЕНЕНО: Ссылка на новый главный JS-файл chladni-gpu.js -->
-    <script type="module" src="chladni-gpu.js"></script>
+    <script type="module" src="chladni.js"></script>
 </body>
 </html>
