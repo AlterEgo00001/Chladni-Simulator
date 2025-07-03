@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Симулятор узоров Хладни v7.3.55 (GPU)</title>
+    <title>Симулятор узоров Хладни v8.0 (GPU)</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,10 +11,11 @@
     
     <link rel="stylesheet" href="styles.css">
     
+    <!-- Ссылки на локальные библиотеки остаются без изменений -->
     <script src="./libs/jsmediatags.min.js"></script>
-    
     <script async src="./libs/es-module-shims.js" crossorigin="anonymous"></script>
     
+    <!-- importmap остается без изменений -->
     <script type="importmap">
       {
         "imports": {
@@ -25,14 +26,13 @@
     </script>
 </head>
 <body>
+    <!-- Вся структура body остается прежней -->
     <div id="tooltip"></div>
 
     <div id="welcome-overlay" class="overlay hidden">
         <div id="welcome-modal" class="modal-window">
-            <h2 data-lang-key="welcome_title">Симулятор Хладни v7.3.55</h2>
-            
+            <h2 data-lang-key="welcome_title">Симулятор Хладни v8.0 (GPU)</h2>
             <div id="welcome-body-content"></div>
-
             <div class="modal-controls">
                 <button id="lang-toggle-btn" class="modal-button" data-lang-key="lang_toggle">Switch to English</button>
                 <button id="show-prompt-btn" class="modal-button" data-lang-key="show_prompt">Промпт Проекта</button>
@@ -179,7 +179,7 @@
                 Используйте Колесо Мыши для приближения/отдаления.
             </span>
             <br>
-            <span data-lang-key="info_version">Симулятор v7.3.55 (Интерактивное Обучение).</span>
+            <span data-lang-key="info_version">Симулятор v8.0 (GPU).</span>
         </p>
     </div>
 
@@ -332,8 +332,11 @@
         <button id="resetAdvancedButton" data-lang-key="btn_reset_adv">Сбросить продвинутые настройки</button>
     </div>
 
+    <!-- Ссылка на локальный bessel.js -->
     <script src="./libs/bessel.js"></script>
-    <!-- ИЗМЕНЕНИЕ: Ссылка на новый JS файл для GPU -->
+    
+    <!-- === ИЗМЕНЕНИЕ ЗДЕСЬ === -->
+    <!-- Загружаем новый скрипт для GPU-версии -->
     <script type="module" src="chladni-gpu.js"></script>
 </body>
 </html>
