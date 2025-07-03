@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Симулятор узоров Хладни v7.3.55 (Интерактивное Обучение)</title>
+    <title>Симулятор узоров Хладни v7.3.55 (GPU)</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,13 +11,10 @@
     
     <link rel="stylesheet" href="styles.css">
     
-    <!-- Ссылка на локальный jsmediatags -->
     <script src="./libs/jsmediatags.min.js"></script>
     
-    <!-- Ссылка на локальный es-module-shims -->
     <script async src="./libs/es-module-shims.js" crossorigin="anonymous"></script>
     
-    <!-- Обновленный importmap для локальных файлов -->
     <script type="importmap">
       {
         "imports": {
@@ -335,8 +332,8 @@
         <button id="resetAdvancedButton" data-lang-key="btn_reset_adv">Сбросить продвинутые настройки</button>
     </div>
 
-    <!-- Ссылка на локальный bessel.js -->
     <script src="./libs/bessel.js"></script>
-    <script type="module" src="chladni.js"></script>
+    <!-- ИЗМЕНЕНИЕ: Ссылка на новый JS файл для GPU -->
+    <script type="module" src="chladni-gpu.js"></script>
 </body>
 </html>
