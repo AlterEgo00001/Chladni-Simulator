@@ -29,8 +29,10 @@ const LANG_PACK = {
         'welcome_title': 'Chladni Simulator v7.3.55 (GPU Edition)', 'welcome_body': `<p>This is a GPU-accelerated version of the interactive simulator based on Chladni's work. All heavy computations (plate and particle simulation) are now performed on your graphics card, providing significantly higher performance.</p><p>The project is provided under the <b>"I DON'T GIVE A FUCK"</b> license. My task was to migrate all computational logic from the CPU to the GPU, which has now been done.</p><p><b>What's new in this version:</b><br>- <b>Performance:</b> FDM and particle physics calculations have been moved to the GPU using WebGL 2 and GLSL shaders.<br>- <b>Scalability:</b> The ability to simulate a much larger number of particles and use higher-resolution FDM grids in real-time.<br>- <b>Functionality Preserved:</b> All interactive modes (modal, audio, microphone, piano) are fully preserved and integrated with the GPU core.</p><p>Contact me: <b>https://t.me/unknown_sector</b>. Donate on TON: <b>UQAY5_p2plWbshvrITsPk5TJ4CKBneJImdVUV-8-MBOA4Lhh</b></p><div class="welcome-image-container"><img src="./img/111.png" alt="Chladni Pattern Example" border="0" /><img src="./img/222.jpg" alt="Project Logo" border="0" /></div>`, 'lang_toggle': 'Переключить на Русский', 'show_prompt': 'Project Prompt', 'close_welcome': 'Start', 'prompt_title': 'Project Prompt / Technical Task', 'close_modal': 'Close', 'toggle_left_panel_show': 'Hide left panel', 'toggle_left_panel_hide': 'Show left panel', 'toggle_right_panel_show': 'Hide right panel', 'toggle_right_panel_hide': 'Show right panel', 'btn_show_welcome': 'Help / Помощь', 'info_controls': 'Hold Left Mouse Button and move to rotate the camera.<br>Use the Mouse Wheel to zoom in/out.', 'info_version': 'Simulator v7.3.55 (GPU Edition).', 'legend_main_params': 'Main Parameters', 'label_freq_slider': 'Frequency (slider):', 'label_freq_input': 'Frequency (Hz input):', 'btn_set': 'Set', 'label_sim_speed': 'Simulation Speed:', 'label_presets': 'Presets (m,n for circle):', 'preset_custom': 'Custom m, n (now: {m},{n})', 'preset_custom_inactive': 'Custom m, n (inactive)', 'preset_lada': 'Star of Lada (4,2)', 'param_m': 'Mode m:', 'btn_set_m': 'Set m', 'param_n': 'Mode n:', 'btn_set_n': 'Set n', 'legend_sim_controls': 'Simulation Controls', 'btn_desktop_audio_on': 'Capture Audio: On', 'btn_desktop_audio_off': 'Capture Audio: Off', 'btn_sound_on': 'Sound: On', 'btn_sound_off': 'Sound: Off', 'btn_freeze_on': 'Particles: Frozen', 'btn_freeze_off': 'Particles: Move', 'btn_subs_on': 'Subtitles: On', 'btn_subs_off': 'Subtitles: Off', 'btn_shadows_on': 'Shadows: On', 'btn_shadows_off': 'Shadows: Off', 'btn_dyn_density_on': 'Dyn. Density: On', 'btn_dyn_density_off': 'Dyn. Density: Off', 'btn_culling_on': 'Culling: On', 'btn_culling_off': 'Culling: Off', 'btn_fdm_opt_on': 'FDM Opt: On', 'btn_fdm_opt_off': 'FDM Opt: Off', 'btn_full_reset': 'FULL RESET', 'label_fdm_progress': 'FDM Step Progress:', 'mode_modal': 'Mode: Modal', 'mode_point': 'Mode: Point (Frequency)', 'mode_audio': 'Mode: Audio File', 'mode_mic': 'Mode: Microphone', 'mode_piano': 'Mode: Piano', 'mode_desktop_audio': 'Mode: Audio Capture', 'legend_plate_rotation': 'Plate Rotation', 'label_rotation_speed': 'Rotation Speed:', 'btn_stop_rotation': 'Stop Rotation', 'legend_audio_input': 'Audio Input', 'label_audio_file': 'Load audio file(s):', 'btn_play_track': 'Play Track/Playlist', 'btn_stop_audio': 'Stop Audio', 'btn_pause': 'Pause', 'btn_resume': 'Resume', 'btn_prev_track': 'Prev. Track', 'btn_next_track': 'Next Track', 'audio_info_none': 'No audio loaded', 'btn_mic_on': 'Microphone: On', 'btn_mic_off': 'Microphone: Off', 'mic_info': 'Using the microphone may require browser permission.', 'label_audio_progress': 'Audio Progress:', 'pitch_detected': 'Detected:', 'pitch_note': 'Note:', 'pitch_detune': 'Detune:', 'bpm_confidence': 'Conf:', 'legend_piano': 'Virtual Piano', 'label_octave': 'Octave:', 'octave_2': 'Contra', 'octave_3': 'Small', 'octave_4': 'First', 'octave_5': 'Second', 'octave_6': 'Third', 'piano_inactive': 'Piano inactive', 'piano_hint': 'Keyboard: Middle row - white, Top row - black. Shift + Key = Octave up.', 'adv_title': 'Advanced Settings', 'legend_plate_physics': 'Plate Physics', 'adv_plate_thickness': 'Thickness (m):', 'adv_plate_density': 'Density (kg/m³):', 'adv_emodulus': 'Young\'s Modulus (Pa):', 'adv_poisson': 'Poisson\'s Ratio:', 'legend_fdm_settings': 'FDM Settings', 'adv_min_grid': 'Min. Grid Size:', 'adv_max_grid': 'Max. Grid Size:', 'adv_fdm_steps': 'Base Max FDM Steps/Frame:', 'adv_stability_factor': 'FDM Stability Factor (dt):', 'adv_damping_factor': 'FDM Damping Factor:', 'legend_audio_analysis': 'Audio Analysis Settings', 'adv_bpm_window': 'BPM Peak Detection Window:', 'legend_particle_dynamics': 'Particle Dynamics', 'adv_particle_count': 'Particle Count (Max):', 'adv_force_multiplier': 'Force Multiplier (Base):', 'adv_damping_base': 'Damping (Base):', 'adv_particle_size': 'Particle Size:', 'adv_enable_repulsion': 'Enable Repulsion:', 'adv_repulsion_radius': 'Repulsion Radius:', 'adv_repulsion_strength': 'Repulsion Strength:', 'adv_restitution': 'Collision Restitution:', 'adv_max_speed': 'Max Particle Speed:', 'adv_max_neighbors': 'Max Repulsion Neighbors:', 'legend_excitation_amp': 'Excitation Amplitude', 'adv_base_amp': 'Base Amplitude:', 'adv_low_cutoff': 'Low Freq. Cutoff (Hz):', 'adv_high_cutoff': 'High Freq. Cutoff (Hz):', 'adv_max_factor': 'Max. Multiplier:', 'adv_min_factor': 'Min. Multiplier:', 'legend_particle_viz': 'Particle Visualization', 'adv_deform_scale': '"Jump" Scale:', 'adv_max_amp': 'Max. "Jump":', 'btn_reset_adv': 'Reset Advanced Settings'
     }
 };
+
 const TOOLTIP_TEXTS = { 'desktop_audio': { ru: { title: 'Захват Аудио с ПК', body: 'Позволяет использовать любой звук, воспроизводимый на вашем компьютере (из другой вкладки браузера, плеера, игры) как источник для симуляции. <b>КРИТИЧЕСКИ ВАЖНО:</b> в появившемся окне выберите вкладку "Весь экран" или конкретное окно приложения, а затем <b>обязательно поставьте галочку "Поделиться системным аудио"</b> в левом нижнем углу.' }, en: { title: 'Desktop Audio Capture', body: 'Allows using any sound playing on your computer (from another browser tab, player, game) as the source for the simulation. <b>CRITICALLY IMPORTANT:</b> In the dialog that appears, select the "Entire Screen" tab or a specific application window, and then <b>be sure to check the "Share system audio" box</b> in the lower-left corner.' } }, 'frequency': { ru: { title: 'Частота (Ползунок)', body: 'Основной способ находить резонансные частоты. Плавно изменяйте частоту возбуждения, чтобы увидеть, как узоры Хладни появляются и исчезают. Каждому стабильному узору соответствует своя резонансная частота.' }, en: { title: 'Frequency (Slider)', body: 'The primary way to find resonant frequencies. Smoothly change the excitation frequency to see how Chladni patterns appear and disappear. Each stable pattern corresponds to its own resonant frequency.' } }, 'frequency_input': { ru: { title: 'Точный Ввод Частоты', body: 'Используйте это поле для ввода точного значения частоты в Герцах (Гц). Это полезно, если вы знаете конкретную резонансную частоту, которую хотите воспроизвести, или для возврата к ранее найденному узору.' }, en: { title: 'Precise Frequency Input', body: 'Use this field to enter an exact frequency value in Hertz (Hz). This is useful if you know a specific resonant frequency you want to reproduce or to return to a previously found pattern.' } }, 'simulation_speed': { ru: { title: 'Скорость Симуляции', body: 'Управляет скоростью течения времени в симуляции. Значение > 1.0 ускоряет движение частиц и формирование узора, а значение < 1.0 — замедляет. Не влияет на частоту звука, только на визуальную динамику.' }, en: { title: 'Simulation Speed', body: 'Controls the flow of time in the simulation. A value > 1.0 speeds up particle movement and pattern formation, while a value < 1.0 slows it down. It does not affect the sound frequency, only the visual dynamics.' } }, 'presets': { ru: { title: 'Предустановки Узоров', body: 'Быстрый способ выбрать классические узоры Хладни для круглой пластины. Каждая опция устанавливает соответствующие модальные параметры "m" и "n", которые однозначно определяют геометрию узора и его резонансную частоту.' }, en: { title: 'Pattern Presets', body: 'A quick way to select classic Chladni patterns for a circular plate. Each option sets the corresponding modal parameters "m" and "n", which uniquely define the pattern\'s geometry and its resonant frequency.' } }, 'param_m': { ru: { title: 'Модальный параметр "m"', body: 'Определяет количество диаметральных узловых линий (линий, проходящих через центр), которые делят узор на сектора. "m" должно быть целым неотрицательным числом (0, 1, 2...). Увеличивайте "m" для получения более "лучистых" узоров.' }, en: { title: 'Modal Parameter "m"', body: 'Determines the number of diametral nodal lines (lines passing through the center) that divide the pattern into sectors. "m" must be a non-negative integer (0, 1, 2...). Increase "m" to get more "ray-like" patterns.' } }, 'param_n': { ru: { title: 'Модальный параметр "n"', body: 'Определяет количество круговых узловых линий. "n" должно быть целым положительным числом (1, 2, 3...). Увеличение "n" добавляет концентрические кольца, на которых частицы остаются в покое.' }, en: { title: 'Modal Parameter "n"', body: 'Determines the number of circular nodal lines. "n" must be a positive integer (1, 2, 3...). Increasing "n" adds concentric rings where particles remain at rest.' } }, 'fdm_progress': { ru: { title: 'Прогресс Шага Симуляции (FDM)', body: 'Показывает, насколько интенсивно GPU рассчитывает колебания пластины в данный момент. На GPU этот процесс очень быстрый, поэтому индикатор может быть менее заметным, чем в CPU-версии.' }, en: { title: 'Simulation Step Progress (FDM)', body: 'Shows how intensively the GPU is calculating the plate\'s vibrations at the moment. This process is very fast on the GPU, so the indicator may be less noticeable than in the CPU version.' } }, 'rotation_speed': { ru: { title: 'Скорость Вращения Пластины', body: 'Заставляет пластину вращаться вокруг своей оси. Это чисто визуальный эффект, который не влияет на физику узоров, но позволяет лучше рассмотреть их со всех сторон.' }, en: { title: 'Plate Rotation Speed', body: 'Causes the plate to rotate around its axis. This is a purely visual effect that does not affect the physics of the patterns but allows you to view them from all sides.' } }, 'audio_file': { ru: { title: 'Анализ Аудиофайла', body: 'Загрузите аудиофайл (MP3, WAV и др.) для анализа. Симулятор будет в реальном времени определять основную частоту звука и использовать ее для возбуждения пластины. Также будет предпринята попытка найти текст песни (субтитры).' }, en: { title: 'Audio File Analysis', body: 'Load an audio file (MP3, WAV, etc.) for analysis. The simulator will determine the fundamental frequency of the sound in real-time and use it to excite the plate. It will also attempt to find the song lyrics (subtitles).' } }, 'mic_input': { ru: { title: 'Анализ с Микрофона', body: 'Используйте звук с вашего микрофона для управления симуляцией. Попробуйте напеть ноту или поднести источник звука к микрофону, чтобы увидеть, как узоры реагируют на ваш голос или музыку.' }, en: { title: 'Microphone Analysis', body: 'Use the sound from your microphone to control the simulation. Try singing a note or bringing a sound source close to the microphone to see how the patterns react to your voice or music.' } }, 'audio_progress': { ru: { title: 'Прогресс Воспроизведения', body: 'Показывает текущую позицию в загруженном аудиофайле. Вы можете перематывать трек, перетаскивая этот ползунок.' }, en: { title: 'Playback Progress', body: 'Shows the current position in the loaded audio file. You can seek through the track by dragging this slider.' } }, 'piano_octave': { ru: { title: 'Выбор Октавы', body: 'Изменяет высоту нот, играемых на виртуальном пианино и с клавиатуры компьютера. "Первая октава" является стандартной для фортепиано.' }, en: { title: 'Octave Selection', body: 'Changes the pitch of the notes played on the virtual piano and with the computer keyboard. The "First Octave" is standard for piano.' } }, 'piano_keys': { ru: { title: 'Виртуальное Пианино', body: 'Нажимайте на клавиши мышью или используйте клавиатуру компьютера (средний ряд - белые, верхний - черные), чтобы генерировать узоры, соответствующие определенным нотам. Удерживайте Shift для игры на октаву выше.' }, en: { title: 'Virtual Piano', body: 'Click the keys with your mouse or use the computer keyboard (middle row - white keys, top row - black keys) to generate patterns corresponding to specific notes. Hold Shift to play one octave higher.' } }, 'adv_plate_thickness': { ru: { title: 'Толщина Пластины', body: 'Физическая толщина пластины в метрах. Более толстые пластины жестче, что приводит к увеличению скорости распространения волн и, как следствие, к более высоким резонансным частотам для тех же узоров (m,n).' }, en: { title: 'Plate Thickness', body: 'The physical thickness of the plate in meters. Thicker plates are stiffer, which leads to a higher wave propagation speed and, consequently, higher resonant frequencies for the same patterns (m,n).' } }, 'adv_plate_density': { ru: { title: 'Плотность Материала', body: 'Плотность материала пластины в кг/м³. Более плотные материалы (например, сталь по сравнению с алюминием) более инертны. Это замедляет волны и понижает резонансные частоты.' }, en: { title: 'Material Density', body: 'The density of the plate material in kg/m³. Denser materials (e.g., steel compared to aluminum) are more inert. This slows down the waves and lowers the resonant frequencies.' } }, 'adv_emodulus': { ru: { title: 'Модуль Юнга', body: 'Характеристика упругости материала, показывающая его жесткость. Чем выше модуль Юнга (например, у стали он выше, чем у алюминия), тем быстрее распространяются волны и тем выше резонансные частоты.' }, en: { title: 'Young\'s Modulus', body: 'A measure of a material\'s stiffness. The higher the Young\'s modulus (e.g., steel is higher than aluminum), the faster the waves propagate and the higher the resonant frequencies.' } }, 'adv_poisson': { ru: { title: 'Коэффициент Пуассона', body: 'Описывает, насколько материал сжимается в поперечном направлении при растяжении в продольном. Влияет на изгибную жесткость пластины и незначительно изменяет резонансные частоты.' }, en: { title: 'Poisson\'s Ratio', body: 'Describes how much a material compresses in the transverse direction when stretched longitudinally. It affects the flexural rigidity of the plate and slightly alters the resonant frequencies.' } }, 'adv_min_grid': { ru: { title: 'Мин. Размер Сетки', body: 'Минимальный размер расчетной сетки (например, 31x31), используемой для низких частот. Меньшие значения снижают нагрузку на CPU, но могут ухудшить детализацию узоров.' }, en: { title: 'Min. Grid Size', body: 'The minimum size of the calculation grid (e.g., 31x31) used for low frequencies. Smaller values reduce CPU load but may decrease pattern detail.' } }, 'adv_max_grid': { ru: { title: 'Макс. Размер Сетки', body: 'Максимальный размер расчетной сетки (например, 121x121), используемой для высоких частот. Более высокие значения позволяют точно моделировать короткие волны, но незначительно увеличивают нагрузку на GPU.' }, en: { title: 'Max. Grid Size', body: 'The maximum size of the calculation grid (e.g., 121x121) used for high frequencies. Larger values allow for accurate modeling of short waves but slightly increase GPU load.' } }, 'adv_fdm_steps': { ru: { title: 'Шаги FDM / Кадр', body: 'Базовое количество шагов численного моделирования, выполняемых за один кадр анимации. Большее число шагов повышает стабильность симуляции на высоких частотах, но требует больше ресурсов GPU.' }, en: { title: 'FDM Steps / Frame', body: 'The base number of numerical simulation steps performed per animation frame. A higher number of steps improves simulation stability at high frequencies but requires more GPU resources.' } }, 'adv_stability_factor': { ru: { title: 'Фактор Стабильности (dt)', body: 'Множитель для расчета шага по времени (dt) в симуляции. Меньшие значения делают симуляцию более стабильной, но медленной, так как требуется больше шагов. Слишком большие значения могут привести к "взрыву" симуляции.' }, en: { title: 'Stability Factor (dt)', body: 'A multiplier for calculating the time step (dt) in the simulation. Smaller values make the simulation more stable but slower, as more steps are required. Values that are too large can cause the simulation to "explode".' } }, 'adv_damping_factor': { ru: { title: 'Затухание FDM', body: 'Имитирует внутреннее трение в материале пластины, заставляя колебания со временем затухать. Слишком низкое значение может привести к нестабильности, а слишком высокое - "заглушит" узоры.' }, en: { title: 'FDM Damping', body: 'Simulates internal friction in the plate material, causing vibrations to decay over time. A value that is too low can lead to instability, while a value that is too high will "dampen" the patterns.' } }, 'adv_bpm_window': { ru: { title: 'Окно Детекции BPM', body: 'Размер "окна" истории (в сэмплах), используемого для поиска пиков при анализе ритма (BPM). Увеличение может сделать определение более стабильным, но менее отзывчивым к смене темпа.' }, en: { title: 'BPM Detection Window', body: 'The size of the history "window" (in samples) used to find peaks when analyzing the rhythm (BPM). Increasing it can make detection more stable but less responsive to tempo changes.' } }, 'adv_particle_count': { ru: { title: 'Количество Частиц', body: 'Максимальное количество частиц (песка) в симуляции. Большее количество создает более четкие и детализированные узоры, но влияет на производительность GPU.' }, en: { title: 'Particle Count', body: 'The maximum number of particles (sand) in the simulation. A larger quantity creates clearer and more detailed patterns but impacts GPU performance.' } }, 'adv_force_multiplier': { ru: { title: 'Множитель Силы', body: 'Базовый множитель для силы, которая отталкивает частицы от вибрирующих участков к узловым линиям. Увеличьте, чтобы частицы двигались быстрее и энергичнее.' }, en: { title: 'Force Multiplier', body: 'The base multiplier for the force that pushes particles from vibrating areas to the nodal lines. Increase it to make the particles move faster and more energetically.' } }, 'adv_damping_base': { ru: { title: 'Демпфирование Частиц', body: 'Имитирует трение, замедляющее частицы (значение < 1.0). Чем ближе к 1, тем дольше частицы сохраняют свою скорость. Слишком низкие значения заставят их быстро остановиться.' }, en: { title: 'Particle Damping', body: 'Simulates friction that slows down the particles (value < 1.0). The closer to 1, the longer the particles retain their velocity. Values that are too low will cause them to stop quickly.' } }, 'adv_particle_size': { ru: { title: 'Размер Частиц', body: 'Визуальный размер каждой частицы. Не влияет на физику, только на отображение. Подберите размер для наилучшего визуального результата.' }, en: { title: 'Particle Size', body: 'The visual size of each particle. Does not affect the physics, only the display. Adjust the size for the best visual result.' } }, 'adv_enable_repulsion': { ru: { title: 'Отталкивание Частиц', body: 'Включает/выключает силу отталкивания между частицами. Когда включено, частицы ведут себя более "жидко" и не скапливаются в одной точке, распределяясь вдоль узловых линий.' }, en: { title: 'Particle Repulsion', body: 'Enables/disables the repulsive force between particles. When enabled, particles behave more "fluidly" and do not clump together at a single point, distributing themselves along the nodal lines.' } }, 'adv_repulsion_radius': { ru: { title: 'Радиус Отталкивания', body: 'Расстояние, на котором частицы начинают отталкивать друг друга. Больший радиус создает более "разреженные" узоры.' }, en: { title: 'Repulsion Radius', body: 'The distance at which particles begin to repel each other. A larger radius creates more "sparse" patterns.' } }, 'adv_repulsion_strength': { ru: { title: 'Сила Отталкивания', body: 'Насколько сильно частицы отталкиваются друг от друга в пределах радиуса. Увеличьте для более выраженного эффекта "жидкости".' }, en: { title: 'Repulsion Strength', body: 'How strongly particles repel each other within the radius. Increase for a more pronounced "fluid" effect.' } }, 'adv_restitution': { ru: { title: 'Упругость Столкновения', body: 'Коэффициент упругости (0 до 1) при столкновении частиц с краем пластины. 0 - абсолютно неупругое столкновение (частица "прилипает"), 1 - абсолютно упругое (отскакивает без потерь).' }, en: { title: 'Collision Restitution', body: 'The coefficient of restitution (0 to 1) for particle collisions with the edge of the plate. 0 is a perfectly inelastic collision (particle "sticks"), 1 is a perfectly elastic collision (bounces with no loss).' } }, 'adv_max_speed': { ru: { title: 'Макс. Скорость Частиц', body: 'Ограничивает максимальную скорость движения частиц, предотвращая их "вылет" из-за слишком больших сил.' }, en: { title: 'Max Particle Speed', body: 'Limits the maximum speed of particle movement, preventing them from "flying out" due to excessively large forces.' } }, 'adv_max_neighbors': { ru: { title: 'Макс. Соседей для Отталкивания', body: 'Ограничивает количество соседних частиц, проверяемых для расчета отталкивания. Уменьшение этого значения может повысить производительность, но снизит качество симуляции отталкивания.' }, en: { title: 'Max Repulsion Neighbors', body: 'Limits the number of neighboring particles checked for calculating repulsion. Decreasing this value can improve performance but will reduce the quality of the repulsion simulation.' } }, 'adv_base_amp': { ru: { title: 'Базовая Амплитуда', body: 'Основной множитель для силы возбуждения пластины. Увеличение этого параметра делает колебания более сильными, что приводит к более быстрому формированию узоров.' }, en: { title: 'Base Amplitude', body: 'The main multiplier for the plate excitation force. Increasing this parameter makes the vibrations stronger, leading to faster pattern formation.' } }, 'adv_low_cutoff': { ru: { title: 'Нижний Порог Частоты', body: 'Частота, ниже которой амплитуда возбуждения будет максимальной. Используется для усиления низких частот.' }, en: { title: 'Low Frequency Cutoff', body: 'The frequency below which the excitation amplitude will be at its maximum. Used to boost low frequencies.' } }, 'adv_high_cutoff': { ru: { title: 'Верхний Порог Частоты', body: 'Частота, выше которой амплитуда возбуждения будет минимальной. Используется для ослабления очень высоких частот и стабилизации симуляции.' }, en: { title: 'High Frequency Cutoff', body: 'The frequency above which the excitation amplitude will be at its minimum. Used to attenuate very high frequencies and stabilize the simulation.' } }, 'adv_max_factor': { ru: { title: 'Макс. Множитель Амплитуды', body: 'Множитель, применяемый к базовой амплитуде на частотах ниже нижнего порога. Позволяет усилить отклик на низких частотах.' }, en: { title: 'Max. Amplitude Factor', body: 'The multiplier applied to the base amplitude for frequencies below the low cutoff. Allows for boosting the response at low frequencies.' } }, 'adv_min_factor': { ru: { title: 'Мин. Множитель Амплитуды', body: 'Множитель, применяемый к базовой амплитуде на частотах выше верхнего порога. Позволяет ослабить отклик на высоких частотах.' }, en: { title: 'Min. Amplitude Factor', body: 'The multiplier applied to the base amplitude for frequencies above the high cutoff. Allows for attenuating the response at high frequencies.' } }, 'adv_deform_scale': { ru: { title: 'Масштаб "Прыжка"', body: 'Визуальный множитель, который управляет тем, насколько высоко "подпрыгивают" частицы над вибрирующими участками. Не влияет на физику, только на визуализацию.' }, en: { title: 'Jump" Scale', body: 'A visual multiplier that controls how high the particles "jump" over the vibrating areas. Does not affect the physics, only the visualization.' } }, 'adv_max_amp': { ru: { title: 'Макс. "Прыжок"', body: 'Ограничивает максимальную высоту "прыжка" частиц. Предотвращает чрезмерно большие визуальные смещения, которые могут выглядеть неестественно.' }, en: { title: 'Max. "Jump"', body: 'Limits the maximum height of the particle "jump". Prevents excessively large visual displacements that can look unnatural.' } }
 };
+
 const PROJECT_PROMPT_TEXT = ''; // Заполняется при необходимости
 
 const PLATE_RADIUS_DEFAULT = 7.5;
@@ -282,10 +284,9 @@ class ChladniSimulatorGPU {
         this.fdmUpdateMaterial = new THREE.ShaderMaterial({
             uniforms: {
                 u_prevState: { value: this.fdmStateA.texture },
-                u_modalExcitationTex: { value: null }, // Будет создаваться динамически
                 u_dt_simulation_step: { value: 0.0 },
-                u_dx: { value: 0.0 },
                 u_resolution: { value: new THREE.Vector2(this.currentGridSize, this.currentGridSize) },
+                u_dx: { value: 0.0 },
                 u_D_FLEXURAL_RIGIDITY: { value: 0.0 },
                 u_RHO_H_PLATE_SPECIFIC_DENSITY: { value: 0.0 },
                 u_FDM_DAMPING_FACTOR: { value: this.FDM_DAMPING_FACTOR },
@@ -315,7 +316,6 @@ class ChladniSimulatorGPU {
                 u_repulsionStrength: { value: this.PARTICLE_REPULSION_STRENGTH },
                 u_maxNeighbors: { value: this.MAX_REPULSION_NEIGHBORS_CHECK },
                 u_particleTexSize: { value: new THREE.Vector2(particleTexSize, particleTexSize) },
-                u_fdmTexSize: { value: new THREE.Vector2(this.MAX_GRID_SIZE, this.MAX_GRID_SIZE) }
             },
             vertexShader: this.shaders.common_vertex,
             fragmentShader: this.shaders.particle_update_frag,
@@ -333,9 +333,7 @@ class ChladniSimulatorGPU {
                 u_particleColor: { value: new THREE.Color(0x00ddff) },
                 u_deformScale: { value: this.VISUAL_DEFORMATION_SCALE },
                 u_maxAmplitude: { value: this.MAX_VISUAL_AMPLITUDE },
-                u_plateRadius: { value: this.PLATE_RADIUS },
                 u_particleTexSize: { value: new THREE.Vector2(particleTexSize, particleTexSize) },
-                u_fdmTexSize: { value: new THREE.Vector2(this.MAX_GRID_SIZE, this.MAX_GRID_SIZE) },
             },
             vertexShader: this.shaders.particle_render_vert,
             fragmentShader: this.shaders.particle_render_frag,
@@ -362,30 +360,24 @@ class ChladniSimulatorGPU {
         const particleTexSize = Math.ceil(Math.sqrt(this.MAX_PARTICLE_COUNT_USER_SETTING));
         const numPixels = particleTexSize * particleTexSize;
 
-        // RGBA texture for positions (x, y, z, unused)
         const posData = new Float32Array(numPixels * 4);
-        // RGBA texture for velocities (vx, vy, vz, unused)
         const velData = new Float32Array(numPixels * 4).fill(0);
         
         for (let i = 0; i < this.MAX_PARTICLE_COUNT_USER_SETTING; i++) {
             const r = Math.sqrt(Math.random()) * this.PLATE_RADIUS;
             const angle = Math.random() * 2 * Math.PI;
             
-            // Positions
             posData[i * 4 + 0] = r * Math.cos(angle);
-            posData[i * 4 + 1] = 0; // y-position is always 0 initially
+            posData[i * 4 + 1] = 0;
             posData[i * 4 + 2] = r * Math.sin(angle);
-            posData[i * 4 + 3] = 1.0; // w component
+            posData[i * 4 + 3] = 1.0;
         }
         
-        // Texture 0: Positions
         const posTexture = new THREE.DataTexture(posData, particleTexSize, particleTexSize, THREE.RGBAFormat, THREE.FloatType);
         posTexture.needsUpdate = true;
-        // Texture 1: Velocities
         const velTexture = new THREE.DataTexture(velData, particleTexSize, particleTexSize, THREE.RGBAFormat, THREE.FloatType);
         velTexture.needsUpdate = true;
         
-        // We need to render these initial data textures to our render targets
         const initialPassMaterial = new THREE.ShaderMaterial({
             uniforms: { u_posTex: { value: posTexture }, u_velTex: { value: velTexture } },
             vertexShader: this.shaders.common_vertex,
@@ -407,17 +399,17 @@ class ChladniSimulatorGPU {
         const gpgpuMesh = new THREE.Mesh(new THREE.PlaneGeometry(2,2), initialPassMaterial);
         const gpgpuScene = new THREE.Scene().add(gpgpuMesh);
         
-        // Render to both ping and pong targets to initialize them
         this.renderer.setRenderTarget(this.particleStateA);
         this.renderer.render(gpgpuScene, this.gpgpuCamera);
         this.renderer.setRenderTarget(this.particleStateB);
         this.renderer.render(gpgpuScene, this.gpgpuCamera);
         this.renderer.setRenderTarget(null);
         
-        // Dispose temporary resources
+        // **ИСПРАВЛЕНИЕ:** Очистка временных ресурсов для предотвращения утечек памяти.
         posTexture.dispose();
         velTexture.dispose();
         initialPassMaterial.dispose();
+        gpgpuMesh.geometry.dispose();
     }
 }
 
@@ -495,7 +487,7 @@ _setupEventListeners() {
     if (this.uiElements.toggleSubtitlesButton) this.uiElements.toggleSubtitlesButton.addEventListener('click', () => { this.isSubtitlesEnabled = !this.isSubtitlesEnabled; if (this.subtitleContainer) this.subtitleContainer.classList.toggle('visible', this.isSubtitlesEnabled && this.currentSubtitles.length > 0 && this.subtitleContainer.textContent !== ''); this._updateUIToggleButtons(); });
     if (this.uiElements.toggleFDMOptButton) { this.uiElements.toggleFDMOptButton.addEventListener('click', () => { this.enableFDMOptimization = !this.enableFDMOptimization; this._updateUIToggleButtons(); this._resetFullSimulationState(true); }); }
     if (this.uiElements.toggleShadowsButton) { this.uiElements.toggleShadowsButton.addEventListener('click', () => { this.enableShadows = !this.enableShadows; this._applyShadowSettings(); this._updateUIToggleButtons(); }); }
-    if (this.uiElements.toggleDynamicDensityButton) { this.uiElements.toggleDynamicDensityButton.addEventListener('click', () => { this.enableDynamicParticleDensity = !this.enableDynamicParticleDensity; if (!this.enableDynamicParticleDensity) { if (this.PARTICLE_COUNT !== this.MAX_PARTICLE_COUNT_USER_SETTING) { this.PARTICLE_COUNT = this.MAX_PARTICLE_COUNT_USER_SETTING; this._createParticleSystem(); } } else { if (this.drivingMechanism === 'audio' || this.drivingMechanism === 'microphone') this.lastParticleCountUpdateTime = 0; } this._updateUIToggleButtons(); }); }
+    if (this.uiElements.toggleDynamicDensityButton) { this.uiElements.toggleDynamicDensityButton.addEventListener('click', () => { this.enableDynamicParticleDensity = !this.enableDynamicParticleDensity; if (!this.enableDynamicParticleDensity) { if (this.PARTICLE_COUNT !== this.MAX_PARTICLE_COUNT_USER_SETTING) { this.PARTICLE_COUNT = this.MAX_PARTICLE_COUNT_USER_SETTING; } } else { if (this.drivingMechanism === 'audio' || this.drivingMechanism === 'microphone') this.lastParticleCountUpdateTime = 0; } this._updateUIToggleButtons(); }); }
     if (this.uiElements.toggleMicrophoneButton) { this.uiElements.toggleMicrophoneButton.addEventListener('click', () => this._toggleMicrophoneInput()); }
     if (this.uiElements.toggleStuckParticleCullingButton) { this.uiElements.toggleStuckParticleCullingButton.addEventListener('click', () => { this.enableStuckParticleCulling = !this.enableStuckParticleCulling; this._updateUIToggleButtons(); if (!this.enableStuckParticleCulling) this._resetParticlePositionsAndVelocities(); }); }
 
@@ -617,23 +609,19 @@ _applyAdvancedSettingChange(paramName, valStrBool) {
     if (paramName === 'MAX_PARTICLE_COUNT_USER_SETTING') {
         this.MAX_PARTICLE_COUNT_USER_SETTING = newVal;
         if (!this.enableDynamicParticleDensity) {
-            if (this.PARTICLE_COUNT !== newVal) {
-                this.PARTICLE_COUNT = newVal;
-                // В GPU-версии пересоздание не требуется, только обновление drawRange и uniforms
-            }
+            this.PARTICLE_COUNT = newVal;
         }
     } else {
         this[paramName] = newVal;
     }
     
-    // Валидация зависимых параметров
     if (paramName.includes("GridSize")) {
         this[paramName] = this._roundToOddInteger(this[paramName]);
         if (this.MIN_GRID_SIZE >= this.MAX_GRID_SIZE) {
-            this.MAX_GRID_SIZE = this.MIN_GRID_SIZE + 2;
+            this.MAX_GRID_SIZE = this._roundToOddInteger(this.MIN_GRID_SIZE + 2);
         }
         if (this.MAX_GRID_SIZE <= this.MIN_GRID_SIZE) {
-            this.MIN_GRID_SIZE = this.MAX_GRID_SIZE - 2;
+            this.MIN_GRID_SIZE = this._roundToOddInteger(this.MAX_GRID_SIZE - 2);
         }
     }
 
@@ -641,7 +629,6 @@ _applyAdvancedSettingChange(paramName, valStrBool) {
         this.normalExcBaseAmp = newVal;
     }
 
-    // Определяем, нужен ли полный сброс симуляции
     const criticalResetParams = ['PLATE_THICKNESS', 'PLATE_DENSITY', 'E_MODULUS', 'POISSON_RATIO', 'MIN_GRID_SIZE', 'MAX_GRID_SIZE', 'FDM_STABILITY_FACTOR'];
     if (criticalResetParams.includes(paramName)) {
         this._resetFullSimulationState(true);
@@ -759,8 +746,21 @@ async _resetAllSettingsToDefaults(isAdvancedOnly = false) {
 }
 
 _resetFullSimulationState(keepParticlePositions = false) {
+    // **ИСПРАВЛЕНИЕ:** Явная очистка GPGPU ресурсов перед их пересозданием.
+    if (this.fdmStateA) this.fdmStateA.dispose();
+    if (this.fdmStateB) this.fdmStateB.dispose();
+    if (this.particleStateA) this.particleStateA.dispose();
+    if (this.particleStateB) this.particleStateB.dispose();
+    if (this.modalExcitationTexture) {
+        this.modalExcitationTexture.dispose();
+        this.modalExcitationTexture = null;
+    }
+    
+    // Пересоздаем GPGPU ресурсы, так как размер сетки мог измениться
+    this._setupGPGPU();
+    
     this._setupPlateParametersForCurrentMode();
-    this._initializeFDM_GPU_State();
+    this._initializeFDM_GPU_State(); // Обновляет униформы и подготавливает FDM
     if (!keepParticlePositions) {
         this._initializeParticleTextures();
     }
@@ -788,6 +788,224 @@ _applyShadowSettings() {
 }
 
 // =================================================================================================
+// ЧАСТЬ 2.1: ИНТЕГРАЦИЯ С UI И УПРАВЛЕНИЕ СОСТОЯНИЕМ
+// Этот раздел содержит методы, отвечающие за связь логики симулятора с элементами
+// HTML-интерфейса, обработку пользовательского ввода и управление режимами работы.
+// =================================================================================================
+
+_mapUIElements() {
+    const ids = [
+        'frequencySlider', 'freqValueText', 'frequencyInput', 'setFrequencyButton', 'particleSpeedSlider', 'speedValueText', 'presetSelect', 'mParamSlider', 'mParamValueText', 'mParamInput', 'setMParamButton', 'nParamSlider', 'nParamValueText', 'nParamInput', 'setNParamButton',
+        'toggleDesktopAudioButton',
+        'toggleSoundButton', 'toggleFreezeButton', 'toggleSubtitlesButton', 'toggleShadowsButton', 'toggleDynamicDensityButton', 'toggleStuckParticleCullingButton', 'toggleFDMOptButton',
+        'resetSimulationButton', 'simulationProgress', 'activeModeDisplay', 'plateRotationSpeedSlider', 'plateRotationSpeedValue', 'stopRotationButton',
+        'audioFileInput', 'playUploadedAudioButton', 'stopAudioButton', 'toggleAudioPauseButton', 'audioInfoEl', 'lyricsInfoEl',
+        'nextTrackButton', 'prevTrackButton',
+        'toggleMicrophoneButton', 'microphoneInfoEl',
+        'audioProgressSlider', 'audioTimeDisplay', 'pitchDetectorInfo', 'pitch', 'note', 'detune_amt', 'detune', 'pianoOctaveSelect', 'pianoContainer', 'pianoStatus',
+        'advPlateThickness', 'advPlateThicknessSlider', 'advPlateThicknessValue', 'advPlateDensity', 'advPlateDensitySlider', 'advPlateDensityValue', 'advEModulus', 'advEModulusSlider', 'advEModulusValue', 'advPoissonRatio', 'advPoissonRatioSlider', 'advPoissonRatioValue',
+        'advMinGridSize', 'advMinGridSizeSlider', 'advMinGridSizeValue', 'advMaxGridSize', 'advMaxGridSizeSlider', 'advMaxGridSizeValue', 'advBaseMaxFDMSteps', 'advBaseMaxFDMStepsSlider', 'advBaseMaxFDMStepsValue', 'advFDMStabilityFactor', 'advFDMStabilityFactorSlider', 'advFDMStabilityFactorValue', 'advFDMDampingFactor', 'advFDMDampingFactorSlider', 'advFDMDampingFactorValue',
+        'advBpmPeakWindow', 'advBpmPeakWindowSlider', 'advBpmPeakWindowValue',
+        'advParticleCount', 'advParticleCountSlider', 'advParticleCountValue', 'advParticleForceBase', 'advParticleForceBaseSlider', 'advParticleForceBaseValue', 'advParticleDampingBase', 'advParticleDampingBaseSlider', 'advParticleDampingBaseValue', 'advParticleSize', 'advParticleSizeSlider', 'advParticleSizeValue', 'advEnableRepulsion', 'advRepulsionRadius', 'advRepulsionRadiusSlider', 'advRepulsionRadiusValue', 'advRepulsionStrength', 'advRepulsionStrengthSlider', 'advRepulsionStrengthValue', 'advParticleRestitution', 'advMaxParticleSpeed', 'advMaxRepulsionNeighbors',
+        'advExcBaseAmp', 'advExcBaseAmpSlider', 'advExcBaseAmpValue', 'advExcLowFreqCutoff', 'advExcHighFreqCutoff', 'advExcMaxFactor', 'advExcMinFactor',
+        'advVisDeformScale', 'advVisDeformScaleSlider', 'advVisDeformScaleValue', 'advMaxVisAmplitude', 'advMaxVisAmplitudeSlider', 'advMaxVisAmplitudeValue',
+        'resetAdvancedButton', 'toggleLeftPanelButton', 'toggleRightPanelButton', 'controls', 'advanced-controls',
+        'bpmInfo', 'bpmValue', 'bpmConfidence', 'subtitle-container',
+        'tooltip', 'welcome-overlay', 'prompt-overlay', 'welcome-modal', 'prompt-modal',
+        'lang-toggle-btn', 'show-prompt-btn', 'close-modal-btn', 'prompt-textarea',
+        'close-prompt-btn', 'show-welcome-btn', 'welcome-body-content'
+    ];
+    ids.forEach(id => {
+        if (id) this.uiElements[id] = document.getElementById(id);
+    });
+}
+
+_setupEventListeners() {
+    window.addEventListener('resize', this._handleWindowResize.bind(this), false);
+    window.addEventListener('keydown', this._handleKeyboardPiano.bind(this));
+    window.addEventListener('keyup', this._handleKeyboardPiano.bind(this));
+
+    // **ИСПРАВЛЕНИЕ:** Добавлены проверки на существование элементов перед добавлением обработчиков.
+    if (this.uiElements.frequencySlider) {
+        this.uiElements.frequencySlider.addEventListener('input', (e) => { const sliderValPercent = parseFloat(e.target.value); const minLogF = 20; const maxLogF = Math.max(20000, this.EXCITATION_FREQ_DEP_HIGH_CUTOFF * 2); this.currentFrequency = this._parseInputNumber(minLogF * Math.pow(maxLogF / minLogF, sliderValPercent / 100.0), 273, false, 1, 999999); this.lastStablePitchFrequency = 0; this._setActiveDrivingMechanism('point', true); });
+    }
+    const freqInputHandler = () => { const inputValue = this._parseInputNumber(this.uiElements.frequencyInput.value, this.currentFrequency, false, 1, 999999); this.currentFrequency = inputValue; this.lastStablePitchFrequency = 0; this._setActiveDrivingMechanism('point', true); };
+    if (this.uiElements.setFrequencyButton) this.uiElements.setFrequencyButton.addEventListener('click', freqInputHandler);
+    if (this.uiElements.frequencyInput) this.uiElements.frequencyInput.addEventListener('change', freqInputHandler);
+
+    if (this.uiElements.presetSelect) {
+        this.uiElements.presetSelect.addEventListener('change', (e) => { const val = e.target.value; if (val === 'zvezda_lada') { this.mParameter = 4; this.nParameter = 2; } else if (val !== "none") { const p = val.split(','); this.mParameter = this._parseInputNumber(p[0], 0, true, 0, 99); this.nParameter = this._parseInputNumber(p[1], 1, true, 1, 99); } this.lastStablePitchFrequency = 0; this._setActiveDrivingMechanism('modal', true); if (this.uiElements.presetSelect) this.uiElements.presetSelect.blur(); });
+    }
+
+    const mParamHandler = (valStr) => { let v = this._parseInputNumber(valStr, this.mParameter, true, 0, 99); const maxM = parseInt(this.uiElements.mParamInput?.max) || 99; v = Math.min(v, maxM); if (this.mParameter !== v) { this.mParameter = v; this.nParameter = Math.max(1, Math.min(this.nParameter, parseInt(this.uiElements.nParamInput?.max) || 99)); this.lastStablePitchFrequency = 0; this._setActiveDrivingMechanism('modal', true); } else this._updateModalParametersUI(); };
+    if (this.uiElements.mParamSlider) this.uiElements.mParamSlider.addEventListener('input', (e) => mParamHandler(e.target.value));
+    if (this.uiElements.setMParamButton && this.uiElements.mParamInput) this.uiElements.setMParamButton.addEventListener('click', () => { mParamHandler(this.uiElements.mParamInput.value); this.uiElements.mParamInput.blur(); });
+    if (this.uiElements.mParamInput) this.uiElements.mParamInput.addEventListener('change', (e) => mParamHandler(e.target.value));
+    
+    const nParamHandler = (valStr) => { let v = this._parseInputNumber(valStr, this.nParameter, true, 1, 99); const maxN = parseInt(this.uiElements.nParamInput?.max) || 99; v = Math.min(v, maxN); if (this.nParameter !== v) { this.nParameter = v; this.lastStablePitchFrequency = 0; this._setActiveDrivingMechanism('modal', true); } else this._updateModalParametersUI(); };
+    if (this.uiElements.nParamSlider) this.uiElements.nParamSlider.addEventListener('input', (e) => nParamHandler(e.target.value));
+    if (this.uiElements.setNParamButton && this.uiElements.nParamInput) this.uiElements.setNParamButton.addEventListener('click', () => { nParamHandler(this.uiElements.nParamInput.value); this.uiElements.nParamInput.blur(); });
+    if (this.uiElements.nParamInput) this.uiElements.nParamInput.addEventListener('change', (e) => nParamHandler(e.target.value));
+
+    if (this.uiElements.particleSpeedSlider) {
+        this.uiElements.particleSpeedSlider.addEventListener('input', (e) => {
+            const v = parseFloat(e.target.value); const MAX_SIM_SPEED = 100.0, MIN_SIM_SPEED = 0.1, MID_SLIDER_VALUE = 50.0;
+            if (v <= MID_SLIDER_VALUE) this.particleSimulationSpeedScale = MIN_SIM_SPEED + (1.0 - MIN_SIM_SPEED) * (v / MID_SLIDER_VALUE);
+            else this.particleSimulationSpeedScale = 1.0 + (MAX_SIM_SPEED - 1.0) * ((v - MID_SLIDER_VALUE) / (100.0 - MID_SLIDER_VALUE));
+            if (this.uiElements.speedValueText) this.uiElements.speedValueText.textContent = `${this.particleSimulationSpeedScale.toFixed(2)}x`;
+        });
+    }
+
+    // Кнопки управления симуляцией
+    if (this.uiElements.toggleDesktopAudioButton) this.uiElements.toggleDesktopAudioButton.addEventListener('click', () => this._toggleDesktopAudio());
+    if (this.uiElements.toggleSoundButton) this.uiElements.toggleSoundButton.addEventListener('click', () => this._toggleGeneratedSoundPlayback());
+    if (this.uiElements.toggleFreezeButton) this.uiElements.toggleFreezeButton.addEventListener('click', () => { this.areParticlesFrozen = !this.areParticlesFrozen; this._updateUIToggleButtons(); });
+    if (this.uiElements.toggleSubtitlesButton) this.uiElements.toggleSubtitlesButton.addEventListener('click', () => { this.isSubtitlesEnabled = !this.isSubtitlesEnabled; if (this.subtitleContainer) this.subtitleContainer.classList.toggle('visible', this.isSubtitlesEnabled && this.currentSubtitles.length > 0 && this.subtitleContainer.textContent !== ''); this._updateUIToggleButtons(); });
+    if (this.uiElements.toggleFDMOptButton) this.uiElements.toggleFDMOptButton.addEventListener('click', () => { this.enableFDMOptimization = !this.enableFDMOptimization; this._updateUIToggleButtons(); });
+    if (this.uiElements.toggleShadowsButton) this.uiElements.toggleShadowsButton.addEventListener('click', () => { this.enableShadows = !this.enableShadows; this._applyShadowSettings(); this._updateUIToggleButtons(); });
+    if (this.uiElements.toggleDynamicDensityButton) this.uiElements.toggleDynamicDensityButton.addEventListener('click', () => { this.enableDynamicParticleDensity = !this.enableDynamicParticleDensity; if (!this.enableDynamicParticleDensity) { this.PARTICLE_COUNT = this.MAX_PARTICLE_COUNT_USER_SETTING; } this._updateUIToggleButtons(); });
+    if (this.uiElements.toggleMicrophoneButton) this.uiElements.toggleMicrophoneButton.addEventListener('click', () => this._toggleMicrophoneInput());
+    if (this.uiElements.toggleStuckParticleCullingButton) this.uiElements.toggleStuckParticleCullingButton.addEventListener('click', () => { this.enableStuckParticleCulling = !this.enableStuckParticleCulling; this._updateUIToggleButtons(); });
+    if (this.uiElements.resetSimulationButton) this.uiElements.resetSimulationButton.addEventListener('click', () => this._resetAllSettingsToDefaults(false));
+
+    // Управление вращением и аудио
+    if (this.uiElements.plateRotationSpeedSlider) this.uiElements.plateRotationSpeedSlider.addEventListener('input', (e) => { this.plateRotationSpeed = parseFloat(e.target.value); if (this.uiElements.plateRotationSpeedValue) this.uiElements.plateRotationSpeedValue.textContent = `${this.plateRotationSpeed.toFixed(2)} об/сек`; });
+    if (this.uiElements.stopRotationButton) this.uiElements.stopRotationButton.addEventListener('click', () => { this.plateRotationSpeed = 0; if (this.uiElements.plateRotationSpeedSlider) this.uiElements.plateRotationSpeedSlider.value = 0; if (this.uiElements.plateRotationSpeedValue) this.uiElements.plateRotationSpeedValue.textContent = "0.00 об/сек"; });
+    if (this.uiElements.audioFileInput) this.uiElements.audioFileInput.addEventListener('change', (e) => this._handleAudioFileSelection(e));
+    if (this.uiElements.playUploadedAudioButton) this.uiElements.playUploadedAudioButton.addEventListener('click', async () => { if (this.playlistFiles.length > 0) { await this._loadAndPlayTrack(this.currentPlaylistIndex === -1 ? 0 : this.currentPlaylistIndex); } });
+    if (this.uiElements.stopAudioButton) this.uiElements.stopAudioButton.addEventListener('click', () => this._stopLoadedAudioFilePlayback(false));
+    if (this.uiElements.toggleAudioPauseButton) this.uiElements.toggleAudioPauseButton.addEventListener('click', () => this._togglePauseLoadedAudioFilePlayback());
+    if (this.uiElements.nextTrackButton) this.uiElements.nextTrackButton.addEventListener('click', () => this._nextTrack());
+    if (this.uiElements.prevTrackButton) this.uiElements.prevTrackButton.addEventListener('click', () => this._prevTrack());
+
+    if (this.uiElements.audioProgressSlider) this.uiElements.audioProgressSlider.addEventListener('input', (e) => { if (this.audioElement && (this.audioElement.duration || this.audioFileDuration) > 0) { const duration = this.audioElement.duration || this.audioFileDuration; const seekTime = (this._parseInputNumber(e.target.value, 0, false, 0, 100) / 100.0) * duration; this.audioPlaybackOffset = seekTime; this.audioElement.currentTime = seekTime; } });
+    if (this.uiElements.pianoOctaveSelect) this.uiElements.pianoOctaveSelect.addEventListener('change', (e) => { this.currentPianoOctave = parseInt(e.target.value, 10); if (this.uiElements.pianoOctaveSelect) this.uiElements.pianoOctaveSelect.blur(); });
+
+    // Панели
+    const leftPanelBtn = this.uiElements.toggleLeftPanelButton;
+    if (leftPanelBtn && this.uiElements.controls) leftPanelBtn.addEventListener('click', () => { this.uiElements.controls.classList.toggle('hidden'); const isHidden = this.uiElements.controls.classList.contains('hidden'); const key = isHidden ? 'toggle_left_panel_hide' : 'toggle_left_panel_show'; if (LANG_PACK[this.currentLanguage]) leftPanelBtn.textContent = LANG_PACK[this.currentLanguage][key]; });
+    const rightPanelBtn = this.uiElements.toggleRightPanelButton;
+    if (rightPanelBtn && this.uiElements['advanced-controls']) rightPanelBtn.addEventListener('click', () => { this.uiElements['advanced-controls'].classList.toggle('hidden'); const isHidden = this.uiElements['advanced-controls'].classList.contains('hidden'); const key = isHidden ? 'toggle_right_panel_hide' : 'toggle_right_panel_show'; if (LANG_PACK[this.currentLanguage]) rightPanelBtn.textContent = LANG_PACK[this.currentLanguage][key]; });
+
+    this._setupAdvancedControlsListeners();
+}
+
+_setupAdvancedControlsListeners() {
+    if (this.uiElements.resetAdvancedButton) this.uiElements.resetAdvancedButton.addEventListener('click', () => this._resetAllSettingsToDefaults(true));
+    const allConfigs = [
+        { id: 'advPlateThickness', varName: 'PLATE_THICKNESS' }, { id: 'advPlateDensity', varName: 'PLATE_DENSITY' }, { id: 'advEModulus', varName: 'E_MODULUS' }, { id: 'advPoissonRatio', varName: 'POISSON_RATIO' }, { id: 'advMinGridSize', varName: 'MIN_GRID_SIZE' }, { id: 'advMaxGridSize', varName: 'MAX_GRID_SIZE' }, { id: 'advBaseMaxFDMSteps', varName: 'BASE_MAX_FDM_STEPS_PER_FRAME' }, { id: 'advFDMStabilityFactor', varName: 'FDM_STABILITY_FACTOR' }, { id: 'advFDMDampingFactor', varName: 'FDM_DAMPING_FACTOR' }, { id: 'advBpmPeakWindow', varName: 'BPM_PEAK_DETECTION_WINDOW' }, { id: 'advParticleCount', varName: 'MAX_PARTICLE_COUNT_USER_SETTING' }, { id: 'advParticleForceBase', varName: 'PARTICLE_EFFECTIVE_FORCE_MULTIPLIER_BASE' }, { id: 'advParticleDampingBase', varName: 'PARTICLE_DAMPING_BASE' }, { id: 'advParticleRestitution', varName: 'PARTICLE_BOUNDARY_RESTITUTION', noSlider: true }, { id: 'advMaxParticleSpeed', varName: 'MAX_PARTICLE_SPEED', noSlider: true }, { id: 'advParticleSize', varName: 'PARTICLE_SIZE' }, { id: 'advEnableRepulsion', varName: 'ENABLE_PARTICLE_REPULSION', noSlider: true }, { id: 'advRepulsionRadius', varName: 'PARTICLE_REPULSION_RADIUS' }, { id: 'advRepulsionStrength', varName: 'PARTICLE_REPULSION_STRENGTH' }, { id: 'advMaxRepulsionNeighbors', varName: 'MAX_REPULSION_NEIGHBORS_CHECK', noSlider: true }, { id: 'advExcBaseAmp', varName: 'EXCITATION_FREQ_DEP_BASE_AMP' }, { id: 'advExcLowFreqCutoff', varName: 'EXCITATION_FREQ_DEP_LOW_CUTOFF', noSlider: true }, { id: 'advExcHighFreqCutoff', varName: 'EXCITATION_FREQ_DEP_HIGH_CUTOFF', noSlider: true }, { id: 'advExcMaxFactor', varName: 'EXCITATION_FREQ_DEP_MAX_FACTOR', noSlider: true }, { id: 'advExcMinFactor', varName: 'EXCITATION_FREQ_DEP_MIN_FACTOR', noSlider: true }, { id: 'advVisDeformScale', varName: 'VISUAL_DEFORMATION_SCALE' }, { id: 'advMaxVisAmplitude', varName: 'MAX_VISUAL_AMPLITUDE' }
+    ];
+    allConfigs.forEach(c => {
+        const iE = this.uiElements[c.id];
+        const sE = c.noSlider ? null : this.uiElements[c.id + "Slider"];
+        if (iE) iE.addEventListener(iE.type === 'checkbox' ? 'change' : 'input', (e) => this._applyAdvancedSettingChange(c.varName, e.target.type === 'checkbox' ? e.target.checked : e.target.value));
+        if (sE) sE.addEventListener('change', (e) => this._applyAdvancedSettingChange(c.varName, e.target.value));
+    });
+}
+
+_applyAdvancedSettingChange(paramName, valStrBool) {
+    let newVal;
+    const isIntParam = ['MIN_GRID_SIZE', 'MAX_GRID_SIZE', 'BASE_MAX_FDM_STEPS_PER_FRAME', 'MAX_PARTICLE_COUNT_USER_SETTING', 'MAX_REPULSION_NEIGHBORS_CHECK', 'BPM_PEAK_DETECTION_WINDOW', 'EXCITATION_FREQ_DEP_LOW_CUTOFF', 'EXCITATION_FREQ_DEP_HIGH_CUTOFF'].includes(paramName);
+    if (typeof valStrBool === 'boolean') newVal = valStrBool;
+    else newVal = this._parseInputNumber(valStrBool, this[paramName], isIntParam);
+    if (Math.abs(this[paramName] - newVal) < 1e-9 && typeof this[paramName] === typeof newVal) return;
+    this[paramName] = newVal;
+    if (paramName.includes("GridSize")) {
+        this[paramName] = this._roundToOddInteger(this[paramName]);
+        if (this.MIN_GRID_SIZE >= this.MAX_GRID_SIZE) this.MAX_GRID_SIZE = this.MIN_GRID_SIZE + 2;
+        if (this.MAX_GRID_SIZE <= this.MIN_GRID_SIZE) this.MIN_GRID_SIZE = this.MAX_GRID_SIZE - 2;
+    }
+    const criticalResetParams = ['PLATE_THICKNESS', 'PLATE_DENSITY', 'E_MODULUS', 'POISSON_RATIO', 'MIN_GRID_SIZE', 'MAX_GRID_SIZE', 'FDM_STABILITY_FACTOR'];
+    if (criticalResetParams.includes(paramName)) this._resetFullSimulationState(true);
+    this._populateAdvancedControlsUI();
+}
+
+async _setActiveDrivingMechanism(newMechanism, keepParticlePositions = false) {
+    this.drivingMechanism = newMechanism;
+    if (this.uiElements.activeModeDisplay) {
+        const key = `mode_${newMechanism.toLowerCase()}`;
+        if (LANG_PACK[this.currentLanguage]?.[key]) this.uiElements.activeModeDisplay.innerHTML = LANG_PACK[this.currentLanguage][key];
+    }
+    if (newMechanism.includes('audio') || newMechanism === 'microphone') {
+        if (this.isGeneratedSoundEnabled) await this._toggleGeneratedSoundPlayback();
+        this._startBPMAnalysisLoop();
+    } else {
+        this._stopBPMAnalysisLoop();
+    }
+    this._resetFullSimulationState(keepParticlePositions);
+}
+
+// =================================================================================================
+// ЧАСТЬ 2.2: УПРАВЛЕНИЕ СОСТОЯНИЕМ СИМУЛЯЦИИ
+// Методы для сброса и обновления состояния симуляции.
+// =================================================================================================
+
+_storeDefaultSimulationSettings() {
+    this.defaultAdvancedSettings = {
+        PLATE_THICKNESS: PLATE_THICKNESS_DEFAULT, PLATE_DENSITY: PLATE_DENSITY_DEFAULT, E_MODULUS: E_MODULUS_DEFAULT, POISSON_RATIO: POISSON_RATIO_DEFAULT, MIN_GRID_SIZE: MIN_GRID_SIZE_DEFAULT, MAX_GRID_SIZE: MAX_GRID_SIZE_DEFAULT, BASE_MAX_FDM_STEPS_PER_FRAME: BASE_FDM_STEPS_PER_FRAME_GPU, FDM_STABILITY_FACTOR: FDM_STABILITY_FACTOR_DEFAULT, FDM_DAMPING_FACTOR: FDM_DAMPING_FACTOR_DEFAULT, BPM_PEAK_DETECTION_WINDOW: BPM_PEAK_DETECTION_WINDOW_DEFAULT, MAX_PARTICLE_COUNT_USER_SETTING: PARTICLE_COUNT_DEFAULT, PARTICLE_EFFECTIVE_FORCE_MULTIPLIER_BASE: PARTICLE_FORCE_BASE_DEFAULT, PARTICLE_DAMPING_BASE: PARTICLE_DAMPING_BASE_DEFAULT, PARTICLE_BOUNDARY_RESTITUTION: PARTICLE_RESTITUTION_DEFAULT, MAX_PARTICLE_SPEED: MAX_PARTICLE_SPEED_DEFAULT, PARTICLE_SIZE: PARTICLE_SIZE_DEFAULT, ENABLE_PARTICLE_REPULSION: ENABLE_REPULSION_DEFAULT, PARTICLE_REPULSION_RADIUS: REPULSION_RADIUS_DEFAULT, PARTICLE_REPULSION_STRENGTH: REPULSION_STRENGTH_DEFAULT, MAX_REPULSION_NEIGHBORS_CHECK: MAX_REPULSION_NEIGHBORS_DEFAULT, EXC_BASE_AMP: EXC_BASE_AMP_DEFAULT, EXC_LOW_CUTOFF: EXC_LOW_CUTOFF_DEFAULT, EXC_HIGH_CUTOFF: EXC_HIGH_CUTOFF_DEFAULT, EXC_MAX_FACTOR: EXC_MAX_FACTOR_DEFAULT, EXC_MIN_FACTOR: EXC_MIN_FACTOR_DEFAULT, VISUAL_DEFORMATION_SCALE: VISUAL_DEFORMATION_SCALE_DEFAULT, MAX_VISUAL_AMPLITUDE: MAX_VISUAL_AMPLITUDE_DEFAULT
+    };
+}
+
+async _resetAllSettingsToDefaults(isAdvancedOnly = false) {
+    if (!isAdvancedOnly) {
+        this.enableFDMOptimization = ENABLE_FDM_OPTIMIZATION_DEFAULT; this.enableShadows = ENABLE_SHADOWS_DEFAULT; this.enableDynamicParticleDensity = ENABLE_DYNAMIC_PARTICLE_DENSITY_DEFAULT; this.enableStuckParticleCulling = ENABLE_STUCK_PARTICLE_CULLING_DEFAULT; this.isSubtitlesEnabled = ENABLE_SUBTITLES_DEFAULT;
+    }
+    Object.assign(this, this.defaultAdvancedSettings);
+    this.PARTICLE_COUNT = this.MAX_PARTICLE_COUNT_USER_SETTING;
+    this._updatePhysicalConstants();
+    if (!isAdvancedOnly) {
+        this.mParameter = 0; this.nParameter = 1; this.currentFrequency = 273; this.smoothedPitchFrequency = 273; this.lastStablePitchFrequency = 0;
+        this.particleSimulationSpeedScale = 1.0; if (this.uiElements.particleSpeedSlider) this.uiElements.particleSpeedSlider.value = 50;
+        this.plateRotationSpeed = 0; if (this.uiElements.plateRotationSpeedSlider) this.uiElements.plateRotationSpeedSlider.value = 0;
+        Object.keys(this.besselZerosCache).forEach(key => delete this.besselZerosCache[key]);
+        if (this.isMicrophoneEnabled) await this._toggleMicrophoneInput();
+        if (this.isDesktopAudioEnabled) await this._toggleDesktopAudio();
+        await this._stopLoadedAudioFilePlayback(true);
+        if (this.uiElements.audioFileInput) this.uiElements.audioFileInput.value = "";
+        if (this.isGeneratedSoundEnabled) await this._toggleGeneratedSoundPlayback();
+        await this._setActiveDrivingMechanism('modal', false);
+    }
+    this._populateAdvancedControlsUI();
+    this._updateUIToggleButtons();
+    this._applyShadowSettings();
+    this._resetFullSimulationState(false);
+}
+
+_resetFullSimulationState(keepParticlePositions = false) {
+    // **ИСПРАВЛЕНИЕ:** Явная и надежная очистка GPGPU ресурсов перед их пересозданием.
+    if (this.fdmStateA && this.fdmStateA.dispose) this.fdmStateA.dispose();
+    if (this.fdmStateB && this.fdmStateB.dispose) this.fdmStateB.dispose();
+    if (this.particleStateA && this.particleStateA.dispose) this.particleStateA.dispose();
+    if (this.particleStateB && this.particleStateB.dispose) this.particleStateB.dispose();
+    if (this.modalExcitationTexture && this.modalExcitationTexture.dispose) this.modalExcitationTexture.dispose();
+    this.modalExcitationTexture = null;
+
+    this._setupGPGPU();
+    this._setupPlateParametersForCurrentMode();
+    this._initializeFDM_GPU_State();
+    if (!keepParticlePositions) {
+        this._initializeParticleTextures();
+    }
+    this.simulationTime = 0;
+    this._updateParticleColorBasedOnFrequency();
+}
+
+_applyShadowSettings() {
+    if (!this.renderer || !this.dirLight1 || !this.groundPlane) return;
+    this.renderer.shadowMap.enabled = this.enableShadows;
+    this.dirLight1.castShadow = this.enableShadows;
+    if (this.particlesMesh) this.particlesMesh.castShadow = this.enableShadows;
+    this.groundPlane.receiveShadow = this.enableShadows;
+    this.groundPlane.visible = this.enableShadows;
+    this.scene.traverse(child => {
+        if (child.material) {
+            const materials = Array.isArray(child.material) ? child.material : [child.material];
+            materials.forEach(m => m.needsUpdate = true);
+        }
+    });
+}
+
+// =================================================================================================
 // ЧАСТЬ 3: АУДИО-ДВИЖОК И ВНЕШНИЕ ИСТОЧНИКИ
 // Этот раздел инкапсулирует всю логику, связанную с Web Audio API:
 // - Настройка аудиоконтекста.
@@ -798,7 +1016,7 @@ _applyShadowSettings() {
 
 _setupWebAudioSystem() {
     try {
-        this.mainAudioContext = new(window.AudioContext || window.webkitAudioContext)({ latencyHint: 'interactive', sampleRate: 44100 });
+        this.mainAudioContext = new(window.AudioContext || window.webkitAudioContext)({ latencyHint: 'interactive' });
         if (!this.mainAudioContext) throw new Error("AudioContext creation failed.");
 
         this.mainAudioContext.addEventListener('statechange', this._handleAudioContextStateChange.bind(this));
@@ -811,6 +1029,16 @@ _setupWebAudioSystem() {
         this.pitchDetectorAnalyserNode.fftSize = 2048;
         this.pitchDetectorAnalyserNode.smoothingTimeConstant = 0;
         this.pitchDetectorSignalBuffer = new Float32Array(this.pitchDetectorAnalyserNode.fftSize);
+
+        const createBpmAnalyzer = () => {
+            const analyser = this.mainAudioContext.createAnalyser();
+            analyser.fftSize = 256;
+            analyser.smoothingTimeConstant = 0.3;
+            return analyser;
+        };
+        this.bpmAnalyzers.low.analyser = createBpmAnalyzer();
+        this.bpmAnalyzers.mid.analyser = createBpmAnalyzer();
+        this.bpmAnalyzers.high.analyser = createBpmAnalyzer();
 
         this.fftAnalyserNode = this.mainAudioContext.createAnalyser();
         this.fftAnalyserNode.fftSize = 256;
@@ -826,15 +1054,14 @@ _setupWebAudioSystem() {
         if (this.uiElements.audioFileInput) this.uiElements.audioFileInput.disabled = true;
         if (this.uiElements.toggleMicrophoneButton) { this.uiElements.toggleMicrophoneButton.textContent = 'Микрофон: Ошибка'; this.uiElements.toggleMicrophoneButton.disabled = true; }
         if (this.uiElements.toggleDesktopAudioButton) { this.uiElements.toggleDesktopAudioButton.textContent = 'Перехват: Ошибка'; this.uiElements.toggleDesktopAudioButton.disabled = true; }
-        alert(`Ошибка: Web Audio API не доступен. Детали: ${e.message}`);
     }
 }
 
 _handleAudioContextStateChange() {
     if (this.mainAudioContext.state === 'interrupted') {
-        // Handle interruption, e.g., by pausing playback.
+        console.warn("AudioContext was interrupted.");
     } else if (this.mainAudioContext.state === 'running') {
-        // Context is running, good.
+        console.log("AudioContext is running.");
     }
 }
 
@@ -870,201 +1097,228 @@ async _toggleGeneratedSoundPlayback() {
 }
 
 _autoCorrelatePitch(buffer, sampleRate) {
-    let bufSize = buffer.length;
-    let rms = 0;
-    for (let i = 0; i < bufSize; i++) {
-        let v = buffer[i];
-        rms += v * v;
-    }
+    let bufSize = buffer.length, rms = 0;
+    for (let i = 0; i < bufSize; i++) { let v = buffer[i]; rms += v * v; }
     rms = Math.sqrt(rms / bufSize);
-
     const noiseFloor = 0.005 + (rms * 0.1);
     if (rms < noiseFloor) return -1;
-
     let C = new Float32Array(bufSize);
-    for (let lag = 0; lag < bufSize; lag++) {
-        let sum = 0;
-        for (let i = 0; i < bufSize - lag; i++) sum += buffer[i] * buffer[i + lag];
-        C[lag] = sum;
-    }
-
-    let C_norm = new Float32Array(bufSize);
-    let C0 = C[0] > 1e-9 ? C[0] : 1e-9;
-    for (let lag = 0; lag < bufSize; lag++) {
-        C_norm[lag] = C[lag] / C0;
-    }
-
+    for (let lag = 0; lag < bufSize; lag++) { let sum = 0; for (let i = 0; i < bufSize - lag; i++) sum += buffer[i] * buffer[i + lag]; C[lag] = sum; }
+    let C_norm = new Float32Array(bufSize); let C0 = C[0] > 1e-9 ? C[0] : 1e-9;
+    for (let lag = 0; lag < bufSize; lag++) C_norm[lag] = C[lag] / C0;
     let candidates = [];
     for (let off = this.MIN_SAMPLES_FOR_PITCH_DETECTION; off <= this.MAX_SAMPLES_FOR_PITCH_DETECTION && off < C_norm.length - 1; off++) {
-        if (C_norm[off] > C_norm[off - 1] && C_norm[off] > C_norm[off + 1] && C_norm[off] > 0.1) {
-            candidates.push({ lag: off, value: C_norm[off] });
-        }
+        if (C_norm[off] > C_norm[off - 1] && C_norm[off] > C_norm[off + 1] && C_norm[off] > 0.1) candidates.push({ lag: off, value: C_norm[off] });
     }
-
     if (candidates.length === 0) return -1;
     candidates.sort((a, b) => b.value - a.value);
     candidates = candidates.slice(0, 3);
-
-    let bestCandidate = null;
-    let bestScore = -Infinity;
-
+    let bestCandidate = null, bestScore = -Infinity;
     for (let candidate of candidates) {
-        let period_cand = candidate.lag;
-        let freq_cand = sampleRate / period_cand;
+        let freq_cand = sampleRate / candidate.lag;
         if (freq_cand < PITCH_MIN_FREQUENCY_HZ || freq_cand > PITCH_MAX_FREQUENCY_HZ) continue;
-
         let score = candidate.value * (1 + (rms - noiseFloor) * 0.5);
-
         if (this.lastStablePitchFrequency > 0) {
             let freqRatio = freq_cand / this.lastStablePitchFrequency;
-            if (Math.abs(freqRatio - 1) < 0.25) score += 0.5;
-            else if (Math.abs(freqRatio - 0.5) < 0.1 || Math.abs(freqRatio - 2) < 0.2) score += 0.3;
+            if (Math.abs(freqRatio - 1) < 0.25) score += 0.5; else if (Math.abs(freqRatio - 0.5) < 0.1 || Math.abs(freqRatio - 2) < 0.2) score += 0.3;
         }
-
-        let harmonicPresenceScore = 0;
-        for (let harmonicMultiple = 2; harmonicMultiple <= 3; harmonicMultiple++) {
-            let harmonicPeriod = Math.round(period_cand / harmonicMultiple);
-            if (harmonicPeriod >= this.MIN_SAMPLES_FOR_PITCH_DETECTION && harmonicPeriod < C_norm.length) {
-                if (C_norm[harmonicPeriod] > 0.05) {
-                    harmonicPresenceScore += C_norm[harmonicPeriod] * 0.2;
-                }
-            }
-        }
-        score += harmonicPresenceScore;
-
-        if (score > bestScore) {
-            bestScore = score;
-            bestCandidate = candidate;
-        }
+        if (score > bestScore) { bestScore = score; bestCandidate = candidate; }
     }
-
     if (!bestCandidate) return -1;
-
     let period = parseFloat(bestCandidate.lag);
     if (bestCandidate.lag > 0 && bestCandidate.lag < C.length - 1) {
         let y1 = C[bestCandidate.lag - 1], y2 = C[bestCandidate.lag], y3 = C[bestCandidate.lag + 1];
         let denominator = 2 * (2 * y2 - y1 - y3);
-        if (Math.abs(denominator) > 1e-6) {
-            let ps = (y3 - y1) / denominator;
-            if (isFinite(ps) && Math.abs(ps) < 0.5) period = bestCandidate.lag + ps;
+        if (Math.abs(denominator) > 1e-6) { let ps = (y3 - y1) / denominator; if (isFinite(ps) && Math.abs(ps) < 0.5) period = bestCandidate.lag + ps; }
+    }
+    return period > 0 ? sampleRate / period : -1;
+}
+
+_getSpectralFlux(band) {
+    if (!band.analyser || !this.mainAudioContext || this.mainAudioContext.state !== 'running') return 0;
+    const bufferLength = band.analyser.frequencyBinCount;
+    if (!band.frequencyData || band.frequencyData.length !== bufferLength) band.frequencyData = new Uint8Array(bufferLength);
+    band.analyser.getByteFrequencyData(band.frequencyData);
+    let flux = 0;
+    for (let i = 0; i < bufferLength; i++) {
+        const diff = band.frequencyData[i] - (band.previousData ? band.previousData[i] : 0);
+        flux += diff > 0 ? diff : 0;
+    }
+    if (!band.previousData || band.previousData.length !== bufferLength) band.previousData = new Uint8Array(bufferLength);
+    band.previousData.set(band.frequencyData);
+    return flux;
+}
+
+_isLocalMaximum(fluxValue, history) {
+    if (!history || history.length < 3) return false;
+    const checkWindow = Math.min(Math.floor(history.length / 2), Math.floor(this.BPM_PEAK_DETECTION_WINDOW / 2));
+    if (checkWindow < 1) return false;
+    for (let i = 1; i <= checkWindow; i++) {
+        if (fluxValue <= history[history.length - 1 - i]) return false;
+    }
+    return true;
+}
+
+_updateBPMThreshold(band) {
+    const history = band.history.slice(-50);
+    if (history.length > 10) {
+        const sorted = [...history].sort((a, b) => a - b);
+        const newThreshold = sorted[Math.floor(sorted.length * 0.70)] * 0.9;
+        band.threshold = (band.threshold || 100) * 0.95 + Math.max(30, Math.min(newThreshold, 800)) * 0.05;
+    } else if (band.threshold) {
+        band.threshold = Math.max(30, band.threshold * 0.99);
+    }
+}
+
+_updateAndAnalyzeBPM() {
+    if (!this.mainAudioContext || this.mainAudioContext.state !== 'running') return;
+    const currentTime = this.mainAudioContext.currentTime;
+    for (const bandName of ['low', 'mid', 'high']) {
+        const band = this.bpmAnalyzers[bandName];
+        if (!band.analyser) continue;
+        const flux = this._getSpectralFlux(band);
+        band.history.push(flux);
+        if (band.history.length > 50) band.history.shift();
+        this._updateBPMThreshold(band);
+        if (this._isLocalMaximum(flux, band.history) && flux > band.threshold) {
+            const lastBeatTime = this.allDetectedBeats.length > 0 ? this.allDetectedBeats[this.allDetectedBeats.length - 1].time : -1;
+            if (currentTime - lastBeatTime > 0.22) {
+                this.allDetectedBeats.push({ time: currentTime, band: bandName, strength: flux });
+            }
         }
     }
-    
-    let finalFreq = period > 0 ? sampleRate / period : -1;
-    
-    if (!(finalFreq >= PITCH_MIN_FREQUENCY_HZ && finalFreq <= PITCH_MAX_FREQUENCY_HZ)) {
-        const rawBestFreq = sampleRate / bestCandidate.lag;
-        if (rawBestFreq >= PITCH_MIN_FREQUENCY_HZ && rawBestFreq <= PITCH_MAX_FREQUENCY_HZ) {
-            finalFreq = rawBestFreq;
-        } else {
-            finalFreq = -1;
+    if (this.allDetectedBeats.length > 60) this.allDetectedBeats.shift();
+    this._calculateCombinedBPM();
+}
+
+_calculateCombinedBPM() {
+    if (this.allDetectedBeats.length < 8) {
+        if (this.uiElements.bpmConfidence) this.uiElements.bpmConfidence.textContent = 'ожидание...';
+        return;
+    }
+    const intervals = [];
+    for (let i = 1; i < this.allDetectedBeats.length; i++) {
+        const interval = this.allDetectedBeats[i].time - this.allDetectedBeats[i - 1].time;
+        if (interval > 0.20 && interval < 2.0) {
+            intervals.push({ interval, band: this.allDetectedBeats[i].band, bpm: 60.0 / interval });
         }
     }
-    return finalFreq;
+    if (intervals.length < 5) return;
+    
+    // **ИСПРАВЛЕНИЕ:** Гарантированная инициализация bpmClusters.
+    const bpmClusters = {};
+    const bpmTolerance = 5;
+    intervals.forEach(item => {
+        let foundCluster = false;
+        for (const key in bpmClusters) {
+            if (Math.abs(item.bpm - parseFloat(key)) < bpmTolerance) {
+                bpmClusters[key].push(item);
+                foundCluster = true;
+                break;
+            }
+        }
+        if (!foundCluster) bpmClusters[item.bpm] = [item];
+    });
+
+    let bestCandidate = null, maxScore = -1;
+    for (const key in bpmClusters) {
+        const cluster = bpmClusters[key];
+        if (cluster.length < 3) continue;
+        let score = cluster.length;
+        cluster.forEach(item => {
+            if (item.band === 'low') score += BPM_LOW_BAND_WEIGHT;
+            if (item.band === 'mid') score += BPM_MID_BAND_WEIGHT;
+            if (item.band === 'high') score += BPM_HIGH_BAND_WEIGHT;
+        });
+        const clusterIntervals = cluster.map(item => item.interval).sort((a, b) => a - b);
+        const meanInterval = clusterIntervals.reduce((a, b) => a + b, 0) / cluster.length;
+        if (meanInterval > 0) {
+            const consistency = 1 - (clusterIntervals.reduce((sum, dev) => sum + Math.abs(dev - meanInterval), 0) / cluster.length) / meanInterval;
+            score *= Math.max(0.1, consistency);
+        }
+        if (score > maxScore) { maxScore = score; bestCandidate = cluster; }
+    }
+    if (bestCandidate) {
+        const candidateIntervals = bestCandidate.map(item => item.interval).sort((a, b) => a - b);
+        const medianInterval = candidateIntervals[Math.floor(candidateIntervals.length / 2)];
+        if (medianInterval > 0) {
+            const newBPM = 60.0 / medianInterval;
+            const confidence = Math.max(0, 1 - (candidateIntervals.reduce((sum, val) => sum + Math.abs(val - medianInterval), 0) / candidateIntervals.length) / medianInterval);
+            this.currentBPM = this.currentBPM * 0.9 + newBPM * 0.1;
+            if (this.uiElements.bpmValue) this.uiElements.bpmValue.textContent = this.currentBPM.toFixed(1);
+            if (this.uiElements.bpmConfidence) this.uiElements.bpmConfidence.textContent = `${(confidence * 100).toFixed(1)}%`;
+        }
+    }
 }
 
 _startBPMAnalysisLoop() {
-    // This functionality might be simplified or removed in GPU version if not critical,
-    // as it requires a complex audio graph. For now, we'll keep the placeholder.
     if (this.bpmUpdateIntervalId) clearInterval(this.bpmUpdateIntervalId);
+    const sourceActive = (this.isAudioFilePlaying && !this.isAudioFilePaused) || this.isMicrophoneEnabled || this.isDesktopAudioEnabled;
+    if (!sourceActive || !this.mainAudioContext || this.mainAudioContext.state !== 'running') return;
+    this.allDetectedBeats = [];
+    Object.values(this.bpmAnalyzers).forEach(band => { band.history = []; if (band.previousData) band.previousData.fill(0); band.threshold = 100; });
+    this.bpmUpdateIntervalId = setInterval(() => {
+        const currentSourceActive = (this.isAudioFilePlaying && !this.isAudioFilePaused) || this.isMicrophoneEnabled || this.isDesktopAudioEnabled;
+        if (currentSourceActive && this.mainAudioContext.state === 'running') this._updateAndAnalyzeBPM();
+        else this._stopBPMAnalysisLoop();
+    }, 80);
 }
 
 _stopBPMAnalysisLoop() {
-    if (this.bpmUpdateIntervalId) {
-        clearInterval(this.bpmUpdateIntervalId);
-        this.bpmUpdateIntervalId = null;
-    }
+    if (this.bpmUpdateIntervalId) { clearInterval(this.bpmUpdateIntervalId); this.bpmUpdateIntervalId = null; }
+    if (this.bandSources) { try { this.bandSources.low.disconnect(); this.bandSources.mid.disconnect(); this.bandSources.high.disconnect(); } catch (e) {} this.bandSources = null; }
 }
 
 async _handleAudioFileSelection(event) {
     if (this.isLoadingTrack) return;
     const files = event.target.files;
-    if (!files || files.length === 0 || !this.mainAudioContext) {
-        if (this.uiElements.audioInfoEl) this.uiElements.audioInfoEl.textContent = "Файлы не выбраны.";
-        return;
-    }
-
+    if (!files || files.length === 0 || !this.mainAudioContext) { if (this.uiElements.audioInfoEl) this.uiElements.audioInfoEl.textContent = "Файлы не выбраны."; return; }
     await this._stopLoadedAudioFilePlayback(true);
     if (this.isMicrophoneEnabled) await this._toggleMicrophoneInput();
     if (this.isDesktopAudioEnabled) await this._toggleDesktopAudio();
-
     this.playlistFiles = Array.from(files);
     this.currentPlaylistIndex = -1;
-
-    if (this.uiElements.audioInfoEl) {
-        this.uiElements.audioInfoEl.textContent = `Загружено ${this.playlistFiles.length} трек(ов). Нажмите "Воспр."`;
-    }
-    if (this.uiElements.playUploadedAudioButton) {
-        this.uiElements.playUploadedAudioButton.style.display = 'block';
-        this.uiElements.playUploadedAudioButton.disabled = false;
-        this.uiElements.playUploadedAudioButton.textContent = this.playlistFiles.length > 1 ? 'Воспр. плейлист' : 'Воспр. трек';
-    }
+    if (this.uiElements.audioInfoEl) this.uiElements.audioInfoEl.textContent = `Загружено ${this.playlistFiles.length} трек(ов).`;
+    if (this.uiElements.playUploadedAudioButton) { this.uiElements.playUploadedAudioButton.style.display = 'block'; this.uiElements.playUploadedAudioButton.disabled = false; }
 }
 
 async _loadAndPlayTrack(trackIndex) {
     if (this.isLoadingTrack) return;
-    if (trackIndex < 0 || trackIndex >= this.playlistFiles.length) {
-        await this._stopLoadedAudioFilePlayback(true);
-        return;
-    }
-    this.isLoadingTrack = true;
-    this.currentPlaylistIndex = trackIndex;
+    if (trackIndex < 0 || trackIndex >= this.playlistFiles.length) { await this._stopLoadedAudioFilePlayback(true); return; }
+    this.isLoadingTrack = true; this.currentPlaylistIndex = trackIndex;
     const file = this.playlistFiles[trackIndex];
-    
-    this.activeFetchID++;
-    const currentFetchID = this.activeFetchID;
-
+    this.activeFetchID++; const currentFetchID = this.activeFetchID;
     if (this.uiElements.audioInfoEl) this.uiElements.audioInfoEl.textContent = `Обработка: ${file.name}...`;
     if (this.uiElements.playUploadedAudioButton) this.uiElements.playUploadedAudioButton.disabled = true;
-    
-    this.currentSubtitles = [];
-    if (this.uiElements.lyricsInfoEl) this.uiElements.lyricsInfoEl.textContent = '';
-    
+    this.currentSubtitles = []; if (this.uiElements.lyricsInfoEl) this.uiElements.lyricsInfoEl.textContent = '';
     try {
         await this._findAndLoadLyrics(file, currentFetchID);
-        
         if (this.audioElement) { this.audioElement.pause(); if (this.audioElement.src) URL.revokeObjectURL(this.audioElement.src); this.audioElement.remove(); }
-        this.audioElement = document.createElement('audio');
-        this.audioElement.src = URL.createObjectURL(file);
-        
+        this.audioElement = document.createElement('audio'); this.audioElement.src = URL.createObjectURL(file);
         if (this.audioFileSourceNode) { try { this.audioFileSourceNode.disconnect(); } catch (e) {} }
         this.audioFileSourceNode = this.mainAudioContext.createMediaElementSource(this.audioElement);
-
         this.audioFileSourceNode.connect(this.mainAudioContext.destination);
         if (this.pitchDetectorAnalyserNode) this.audioFileSourceNode.connect(this.pitchDetectorAnalyserNode);
         if (this.fftAnalyserNode) this.audioFileSourceNode.connect(this.fftAnalyserNode);
-
-        this.audioElement.onloadedmetadata = () => {
-            this.audioFileDuration = this.audioElement.duration;
-        };
-        
+        this.audioElement.onloadedmetadata = () => { this.audioFileDuration = this.audioElement.duration; };
         await this._setActiveDrivingMechanism('audio', true);
         await this._playCurrentAudioElement();
-
     } catch (e) {
         console.error("Error loading track:", e);
         if (this.uiElements.audioInfoEl) this.uiElements.audioInfoEl.textContent = `Ошибка: ${file.name} не удалось загрузить.`;
         await this._nextTrack(true);
     } finally {
-        this.isLoadingTrack = false;
-        if (this.uiElements.playUploadedAudioButton) this.uiElements.playUploadedAudioButton.disabled = false;
+        this.isLoadingTrack = false; if (this.uiElements.playUploadedAudioButton) this.uiElements.playUploadedAudioButton.disabled = false;
     }
 }
 
 async _playCurrentAudioElement() {
-    if (!this.audioElement) return;
-    if (!this.mainAudioContext) return;
-    
-    if (this.mainAudioContext.state === 'suspended') {
-        try { await this.mainAudioContext.resume(); } catch (e) { return; }
-    }
-
+    if (!this.audioElement || !this.mainAudioContext) return;
+    if (this.mainAudioContext.state === 'suspended') { try { await this.mainAudioContext.resume(); } catch (e) { return; } }
     this.audioElement.currentTime = this.audioPlaybackOffset;
     try {
         await this.audioElement.play();
-        this.isAudioFilePlaying = true;
-        this.isAudioFilePaused = false;
-        
+        this.isAudioFilePlaying = true; this.isAudioFilePaused = false;
         if (this.uiElements.playUploadedAudioButton) this.uiElements.playUploadedAudioButton.style.display = 'none';
         if (this.uiElements.stopAudioButton) this.uiElements.stopAudioButton.style.display = 'block';
         if (this.uiElements.toggleAudioPauseButton) { this.uiElements.toggleAudioPauseButton.style.display = 'block'; this.uiElements.toggleAudioPauseButton.textContent = 'Пауза'; }
@@ -1073,81 +1327,41 @@ async _playCurrentAudioElement() {
         if (this.uiElements.pitchDetectorInfo) this.uiElements.pitchDetectorInfo.style.display = 'block';
         if (this.uiElements.audioProgressSlider) this.uiElements.audioProgressSlider.style.display = 'block';
         if (this.uiElements.audioTimeDisplay) this.uiElements.audioTimeDisplay.style.display = 'inline';
-
         this.audioElement.onended = () => { if (this.isAudioFilePlaying) this._nextTrack(); };
         this.audioElement.onerror = (e) => { this._nextTrack(true); };
-
-    } catch (e) {
-        console.error("Audio playback error:", e);
-        await this._nextTrack(true);
-    }
+    } catch (e) { console.error("Audio playback error:", e); await this._nextTrack(true); }
 }
 
 async _stopLoadedAudioFilePlayback(isFullReset = false) {
-    if (this.audioFileSourceNode) {
-        try { this.audioFileSourceNode.disconnect(); } catch (e) {}
-        this.audioFileSourceNode = null;
-    }
-    if (this.audioElement) {
-        this.audioElement.pause();
-        this.audioElement.onended = null;
-        this.audioElement.onerror = null;
-        if (this.audioElement.src) URL.revokeObjectURL(this.audioElement.src);
-        if (this.audioElement.parentElement) this.audioElement.remove();
-        this.audioElement = null;
-    }
-    
-    this.isAudioFilePlaying = false;
-    this.isAudioFilePaused = false;
-    this.audioFileCurrentTime = 0;
-    this.audioPlaybackOffset = 0;
-    this.currentSubtitles = [];
-    if(this.subtitleContainer) {
-        this.subtitleContainer.classList.remove('visible');
-        this.subtitleContainer.textContent = '';
-    }
-
+    if (this.audioFileSourceNode) { try { this.audioFileSourceNode.disconnect(); } catch (e) {} this.audioFileSourceNode = null; }
+    if (this.audioElement) { this.audioElement.pause(); this.audioElement.onended = null; this.audioElement.onerror = null; if (this.audioElement.src) URL.revokeObjectURL(this.audioElement.src); if (this.audioElement.parentElement) this.audioElement.remove(); this.audioElement = null; }
+    this.isAudioFilePlaying = false; this.isAudioFilePaused = false; this.audioFileCurrentTime = 0; this.audioPlaybackOffset = 0; this.currentSubtitles = [];
+    if (this.subtitleContainer) { this.subtitleContainer.classList.remove('visible'); this.subtitleContainer.textContent = ''; }
     if (isFullReset) {
-        this.playlistFiles = [];
-        this.currentPlaylistIndex = -1;
-        this.audioFileBuffer = null;
+        this.playlistFiles = []; this.currentPlaylistIndex = -1; this.audioFileBuffer = null;
         if (this.uiElements.audioInfoEl) this.uiElements.audioInfoEl.textContent = "Аудио не загружено";
         if (this.uiElements.lyricsInfoEl) this.uiElements.lyricsInfoEl.textContent = "";
         if (this.uiElements.playUploadedAudioButton) this.uiElements.playUploadedAudioButton.style.display = 'none';
         if (this.uiElements.nextTrackButton) this.uiElements.nextTrackButton.style.display = 'none';
         if (this.uiElements.prevTrackButton) this.uiElements.prevTrackButton.style.display = 'none';
-    } else if (this.playlistFiles.length > 0 && this.currentPlaylistIndex !== -1) {
-         if (this.uiElements.audioInfoEl) this.uiElements.audioInfoEl.textContent = `Остановлено. Готов трек ${this.currentPlaylistIndex + 1}/${this.playlistFiles.length}`;
-         if (this.uiElements.playUploadedAudioButton) {
-            this.uiElements.playUploadedAudioButton.style.display = 'block';
-            this.uiElements.playUploadedAudioButton.disabled = false;
-         }
-    }
-    
-    if (this.uiElements.stopAudioButton) this.uiElements.stopAudioButton.style.display = 'none';
-    if (this.uiElements.toggleAudioPauseButton) this.uiElements.toggleAudioPauseButton.style.display = 'none';
-    
-    if (isFullReset) {
         if (this.uiElements.audioProgressSlider) this.uiElements.audioProgressSlider.style.display = 'none';
         if (this.uiElements.audioTimeDisplay) this.uiElements.audioTimeDisplay.style.display = 'none';
         if (this.uiElements.pitchDetectorInfo) this.uiElements.pitchDetectorInfo.style.display = 'none';
+    } else if (this.playlistFiles.length > 0 && this.currentPlaylistIndex !== -1) {
+        if (this.uiElements.audioInfoEl) this.uiElements.audioInfoEl.textContent = `Остановлено. Готов трек ${this.currentPlaylistIndex + 1}/${this.playlistFiles.length}`;
+        if (this.uiElements.playUploadedAudioButton) { this.uiElements.playUploadedAudioButton.style.display = 'block'; this.uiElements.playUploadedAudioButton.disabled = false; }
     }
-    
+    if (this.uiElements.stopAudioButton) this.uiElements.stopAudioButton.style.display = 'none';
+    if (this.uiElements.toggleAudioPauseButton) this.uiElements.toggleAudioPauseButton.style.display = 'none';
     this.lastStablePitchFrequency = 0;
     if (this.drivingMechanism === 'audio') await this._setActiveDrivingMechanism('modal');
 }
 
 async _togglePauseLoadedAudioFilePlayback() {
-    if (!this.audioElement && this.currentPlaylistIndex === -1) return;
-    if (this.isLoadingTrack) return;
-
-    if (this.isAudioFilePaused) {
-        await this._playCurrentAudioElement();
-    } else {
+    if (!this.audioElement && this.currentPlaylistIndex === -1 || this.isLoadingTrack) return;
+    if (this.isAudioFilePaused) { await this._playCurrentAudioElement(); } else {
         if (!this.isAudioFilePlaying || !this.audioElement) return;
-        this.isAudioFilePaused = true;
-        this.isAudioFilePlaying = false;
-        this.audioElement.pause();
+        this.isAudioFilePaused = true; this.isAudioFilePlaying = false; this.audioElement.pause();
         this.audioPlaybackOffset = this.audioElement.currentTime;
         if (this.uiElements.toggleAudioPauseButton) this.uiElements.toggleAudioPauseButton.textContent = 'Продолжить';
     }
@@ -1155,24 +1369,13 @@ async _togglePauseLoadedAudioFilePlayback() {
 
 async _toggleMicrophoneInput() {
     if (this.isLoadingTrack) return;
-    if (!this.mainAudioContext) {
-        if (this.uiElements.microphoneInfoEl) this.uiElements.microphoneInfoEl.textContent = "Аудиосистема не готова.";
-        this._updateUIToggleButtons();
-        return;
-    }
-    if (this.mainAudioContext.state === 'suspended') {
-        try { await this.mainAudioContext.resume(); } catch (e) {
-            if (this.uiElements.microphoneInfoEl) this.uiElements.microphoneInfoEl.textContent = "Ошибка аудиосистемы.";
-            this._updateUIToggleButtons();
-            return;
-        }
-    }
-
+    if (!this.mainAudioContext) { if (this.uiElements.microphoneInfoEl) this.uiElements.microphoneInfoEl.textContent = "Аудиосистема не готова."; this._updateUIToggleButtons(); return; }
+    if (this.mainAudioContext.state === 'suspended') { try { await this.mainAudioContext.resume(); } catch (e) { if (this.uiElements.microphoneInfoEl) this.uiElements.microphoneInfoEl.textContent = "Ошибка аудиосистемы."; this._updateUIToggleButtons(); return; } }
     if (this.isMicrophoneEnabled) {
         if (this.microphoneStream) { this.microphoneStream.getTracks().forEach(track => track.stop()); this.microphoneStream = null; }
         if (this.microphoneSourceNode) { try { this.microphoneSourceNode.disconnect(); } catch (e) {} this.microphoneSourceNode = null; }
         if (this.uiElements.microphoneInfoEl) this.uiElements.microphoneInfoEl.textContent = "Микрофон выключен.";
-        if (this.drivingMechanism === 'microphone') { await this._setActiveDrivingMechanism('modal'); }
+        if (this.drivingMechanism === 'microphone') await this._setActiveDrivingMechanism('modal');
         if (this.uiElements.pitchDetectorInfo) this.uiElements.pitchDetectorInfo.style.display = 'none';
         this.isMicrophoneEnabled = false;
     } else {
@@ -1180,39 +1383,31 @@ async _toggleMicrophoneInput() {
         if (this.isAudioFilePlaying || this.isAudioFilePaused) await this._stopLoadedAudioFilePlayback(true);
         if (this.isGeneratedSoundEnabled) await this._toggleGeneratedSoundPlayback();
         if (this.isDesktopAudioEnabled) await this._toggleDesktopAudio();
-
         try {
             const constraints = { audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true, latency: 0.01 } };
             this.microphoneStream = await navigator.mediaDevices.getUserMedia(constraints);
             this.microphoneSourceNode = this.mainAudioContext.createMediaStreamSource(this.microphoneStream);
-            
             if (this.pitchDetectorAnalyserNode) this.microphoneSourceNode.connect(this.pitchDetectorAnalyserNode);
             if (this.fftAnalyserNode) this.microphoneSourceNode.connect(this.fftAnalyserNode);
-            
             await this._setActiveDrivingMechanism('microphone', true);
             if (this.uiElements.microphoneInfoEl) this.uiElements.microphoneInfoEl.textContent = "Микрофон активен.";
             if (this.uiElements.pitchDetectorInfo) this.uiElements.pitchDetectorInfo.style.display = 'block';
             this.lastStablePitchFrequency = 0;
         } catch (err) {
             console.error("Ошибка доступа к микрофону:", err);
-            if (this.uiElements.microphoneInfoEl) this.uiElements.microphoneInfoEl.textContent = `Ошибка: ${err.name}. Проверьте разрешения.`;
-            this.isMicrophoneEnabled = false;
-            if (this.drivingMechanism === 'microphone') await this._setActiveDrivingMechanism('modal');
+            if (this.uiElements.microphoneInfoEl) this.uiElements.microphoneInfoEl.textContent = `Ошибка: ${err.name}.`;
+            this.isMicrophoneEnabled = false; if (this.drivingMechanism === 'microphone') await this._setActiveDrivingMechanism('modal');
         }
     }
     this._updateUIToggleButtons();
 }
 
 async _toggleDesktopAudio() {
-    if (!navigator.mediaDevices || !navigator.mediaDevices.getDisplayMedia) {
-        alert('Ваш браузер не поддерживает захват экрана/аудио.');
-        return;
-    }
-
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getDisplayMedia) { alert('Ваш браузер не поддерживает захват экрана/аудио.'); return; }
     if (this.isDesktopAudioEnabled) {
         if (this.desktopStream) { this.desktopStream.getTracks().forEach(track => track.stop()); this.desktopStream = null; }
         if (this.desktopAudioSourceNode) { try { this.desktopAudioSourceNode.disconnect(); } catch (e) {} this.desktopAudioSourceNode = null; }
-        if (this.drivingMechanism === 'desktop_audio') { await this._setActiveDrivingMechanism('modal'); }
+        if (this.drivingMechanism === 'desktop_audio') await this._setActiveDrivingMechanism('modal');
         if (this.uiElements.pitchDetectorInfo) this.uiElements.pitchDetectorInfo.style.display = 'none';
         this.isDesktopAudioEnabled = false;
     } else {
@@ -1220,32 +1415,18 @@ async _toggleDesktopAudio() {
             if (this.isAudioFilePlaying || this.isAudioFilePaused) await this._stopLoadedAudioFilePlayback(true);
             if (this.isGeneratedSoundEnabled) await this._toggleGeneratedSoundPlayback();
             if (this.isMicrophoneEnabled) await this._toggleMicrophoneInput();
-
             const stream = await navigator.mediaDevices.getDisplayMedia({ video: true, audio: true });
             const audioTrack = stream.getAudioTracks()[0];
-            if (!audioTrack) {
-                alert('Не удалось захватить аудио. Убедитесь, что вы поставили галочку "Поделиться системным аудио".');
-                stream.getTracks().forEach(track => track.stop());
-                return;
-            }
-            
-            this.isDesktopAudioEnabled = true;
-            this.desktopStream = stream;
+            if (!audioTrack) { alert('Не удалось захватить аудио. Убедитесь, что вы поставили галочку "Поделиться системным аудио".'); stream.getTracks().forEach(track => track.stop()); return; }
+            this.isDesktopAudioEnabled = true; this.desktopStream = stream;
             this.desktopAudioSourceNode = this.mainAudioContext.createMediaStreamSource(this.desktopStream);
-
             if (this.pitchDetectorAnalyserNode) this.desktopAudioSourceNode.connect(this.pitchDetectorAnalyserNode);
             if (this.fftAnalyserNode) this.desktopAudioSourceNode.connect(this.fftAnalyserNode);
-            
             await this._setActiveDrivingMechanism('desktop_audio', true);
             if (this.uiElements.pitchDetectorInfo) this.uiElements.pitchDetectorInfo.style.display = 'block';
             this.lastStablePitchFrequency = 0;
-            
-            audioTrack.onended = () => { if (this.isDesktopAudioEnabled) { this._toggleDesktopAudio(); } };
-        } catch (err) {
-            console.error("Ошибка захвата экрана/аудио:", err);
-            this.isDesktopAudioEnabled = false;
-            if (this.drivingMechanism === 'desktop_audio') await this._setActiveDrivingMechanism('modal');
-        }
+            audioTrack.onended = () => { if (this.isDesktopAudioEnabled) this._toggleDesktopAudio(); };
+        } catch (err) { console.error("Ошибка захвата экрана/аудио:", err); this.isDesktopAudioEnabled = false; if (this.drivingMechanism === 'desktop_audio') await this._setActiveDrivingMechanism('modal'); }
     }
     this._updateUIToggleButtons();
 }
@@ -1253,7 +1434,7 @@ async _toggleDesktopAudio() {
 _readID3Tags(file) {
     return new Promise((resolve, reject) => {
         if (typeof window.jsmediatags === 'undefined') {
-            return reject(new Error('jsmediatags library is not loaded.'));
+            return reject(new Error('Библиотека jsmediatags не загружена.'));
         }
         window.jsmediatags.read(file, {
             onSuccess: (tag) => resolve(tag.tags),
@@ -1265,73 +1446,41 @@ _readID3Tags(file) {
 async _findAndLoadLyrics(file, fetchID) {
     if (!this.uiElements.lyricsInfoEl) return;
     this.uiElements.lyricsInfoEl.textContent = 'Поиск субтитров...';
-    
     let artist, title;
-
     try {
         const tags = await this._readID3Tags(file);
         if (fetchID !== this.activeFetchID) return;
-
         const lyricsData = tags.lyrics || tags.USLT;
         if (lyricsData) {
-            const lrcText = typeof lyricsData === 'string' ? lyricsData : lyricsData.lyrics;
-            this.currentSubtitles = this._parseLRC(lrcText);
-            if (this.currentSubtitles.length > 0) {
-                this.uiElements.lyricsInfoEl.textContent = 'Субтитры найдены (встроены).';
-                return;
-            }
+            this.currentSubtitles = this._parseLRC(typeof lyricsData === 'string' ? lyricsData : lyricsData.lyrics);
+            if (this.currentSubtitles.length > 0) { this.uiElements.lyricsInfoEl.textContent = 'Субтитры найдены (встроены).'; return; }
         }
-        artist = tags.artist?.trim();
-        title = tags.title?.trim();
-    } catch (error) {
-        console.warn("Could not read ID3 tags:", error);
-    }
-
+        artist = tags.artist?.trim(); title = tags.title?.trim();
+    } catch (error) { console.warn("Could not read ID3 tags:", error); }
     if (fetchID !== this.activeFetchID) return;
-
-    if (!artist || !title) {
-        const infoFromName = this._parseTrackInfoFromName(file.name);
-        artist = infoFromName.artist || artist;
-        title = infoFromName.title || title;
-    }
-
-    if (title) {
-        await this._fetchLyricsFromLrclib(artist || '', title, fetchID);
-    } else {
-        this.uiElements.lyricsInfoEl.textContent = 'Не удалось найти метаданные для поиска.';
-    }
+    if (!artist || !title) { const info = this._parseTrackInfoFromName(file.name); artist = info.artist || artist; title = info.title || title; }
+    if (title) await this._fetchLyricsFromLrclib(artist || '', title, fetchID); else this.uiElements.lyricsInfoEl.textContent = 'Не удалось найти метаданные.';
 }
 
 async _fetchLyricsFromLrclib(artist, track, requestIndex) {
-    const attempts = [
-        { artist, track },
-        { artist, track: track.replace(/\s*\(.*?\)\s*/g, '').trim() }
-    ];
-    if (artist) attempts.push({ artist: '', track });
-
-    for (const attempt of attempts) {
-        if (this.activeFetchID !== requestIndex) return;
-        if (!attempt.track) continue;
-
-        const url = `https://lrclib.net/api/get?artist_name=${encodeURIComponent(attempt.artist)}&track_name=${encodeURIComponent(attempt.track)}`;
-        try {
-            const response = await fetch(url, { signal: AbortSignal.timeout(8000) });
-            if (this.activeFetchID !== requestIndex || !response.ok) continue;
-
-            const data = await response.json();
-            if (data && data.syncedLyrics) {
-                this.currentSubtitles = this._parseLRC(data.syncedLyrics);
-                if (this.currentSubtitles.length > 0) {
-                    if (this.uiElements.lyricsInfoEl) this.uiElements.lyricsInfoEl.textContent = 'Субтитры найдены (lrclib.net)';
-                    return;
-                }
-            }
-        } catch (e) { console.warn(`Failed to fetch lyrics for ${track}:`, e); }
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 8000);
+    const url = `https://lrclib.net/api/get?artist_name=${encodeURIComponent(artist)}&track_name=${encodeURIComponent(track)}`;
+    try {
+        const response = await fetch(url, { signal: controller.signal });
+        clearTimeout(timeoutId);
+        if (this.activeFetchID !== requestIndex || !response.ok) return;
+        const data = await response.json();
+        if (data && data.syncedLyrics) {
+            this.currentSubtitles = this._parseLRC(data.syncedLyrics);
+            if (this.currentSubtitles.length > 0 && this.uiElements.lyricsInfoEl) this.uiElements.lyricsInfoEl.textContent = 'Субтитры найдены (lrclib.net)';
+            return;
+        }
+    } catch (e) {
+        clearTimeout(timeoutId);
+        console.warn(`Failed to fetch lyrics for ${track}:`, e);
     }
-
-    if (this.activeFetchID === requestIndex && this.uiElements.lyricsInfoEl) {
-        this.uiElements.lyricsInfoEl.textContent = 'Субтитры не найдены.';
-    }
+    if (this.activeFetchID === requestIndex && this.uiElements.lyricsInfoEl) this.uiElements.lyricsInfoEl.textContent = 'Субтитры не найдены.';
 }
 
 // =================================================================================================
@@ -1420,9 +1569,6 @@ _findNthBesselRootFromTable(mOrder, nthRootOneIndexed) {
 }
 
 _findNthBesselRootNumerically(mOrder, nthRootOneIndexed) {
-    // This is a complex numerical method and remains unchanged from the CPU version
-    // as it's only called during setup, not in the animation loop.
-    // ... (код метода _findNthBesselRootNumerically скопирован из CPU-версии) ...
     const precision = 1e-7;
     const maxIter = 100;
     let step = 0.05;
@@ -1493,7 +1639,6 @@ _getOptimalGridSizeForFrequency(frequency) {
     else if (effFreq >= freqMaxGrid) targetGridSize = this.MAX_GRID_SIZE;
     else targetGridSize = this.MIN_GRID_SIZE + ((effFreq - baseFreqMin) / (freqMaxGrid - baseFreqMin)) * (this.MAX_GRID_SIZE - this.MIN_GRID_SIZE);
     
-    // Clamp and ensure odd number
     const clampedSize = Math.max(this.MIN_GRID_SIZE, Math.min(this.MAX_GRID_SIZE, Math.floor(targetGridSize)));
     return this._roundToOddInteger(clampedSize);
 }
@@ -1559,31 +1704,41 @@ _handleKeyboardPiano(event) {
 }
 
 async _handlePianoKeyPress(noteOrKeyCode, isPressed, isKeyboardEvent = false, isShiftPressed = false) {
-    // This logic remains largely the same, as it deals with state management and UI, not heavy computation.
-    // ... (код метода _handlePianoKeyPress скопирован из CPU-версии) ...
     if (this.isLoadingTrack) return;
-    let noteName = noteOrKeyCode;
-    let actualOctave = this.currentPianoOctave;
-
+    let noteName = noteOrKeyCode, actualOctave = this.currentPianoOctave;
     if (isKeyboardEvent) {
         if ((isPressed && this.keyboardPressedKeys.has(noteOrKeyCode)) || (!isPressed && !this.keyboardPressedKeys.has(noteOrKeyCode))) return;
         noteName = this.keyToNoteMapping[noteOrKeyCode];
         if (!noteName) return;
-        if (isPressed) this.keyboardPressedKeys.add(noteOrKeyCode); else this.keyboardPressedKeys.delete(noteOrKeyCode);
-        if (isShiftPressed) actualOctave += 1;
-        if (noteName.endsWith('5')) { actualOctave = (noteName === 'C5' ? 1 : 0) + this.currentPianoOctave + (isShiftPressed ? 1:0); noteName = noteName.slice(0, -1); }
+        isPressed ? this.keyboardPressedKeys.add(noteOrKeyCode) : this.keyboardPressedKeys.delete(noteOrKeyCode);
+        if (isShiftPressed) actualOctave++;
+        if (noteName.endsWith('5')) { actualOctave = (noteName === 'C5' ? 1 : 0) + this.currentPianoOctave + (isShiftPressed ? 1 : 0); noteName = noteName.slice(0, -1); }
     } else {
-        if (isPressed) this.activePianoKeys.add(noteName); else this.activePianoKeys.delete(noteName);
-        if (isShiftPressed && isPressed) actualOctave += 1;
+        isPressed ? this.activePianoKeys.add(noteName) : this.activePianoKeys.delete(noteName);
+        if (isShiftPressed && isPressed) actualOctave++;
     }
     actualOctave = Math.max(0, Math.min(8, actualOctave));
-    
-    // ... UI update logic
+    const pianoKeyElement = this.uiElements.pianoContainer?.querySelector(`.piano-key[data-note="${noteName.replace('5','')}"]`);
+    if(pianoKeyElement) pianoKeyElement.classList.toggle('active', isPressed);
+
     if (isPressed) {
         this.currentFrequency = this._frequencyFromMIDINoteNumber(NOTE_TO_MIDI_NUMBER_OFFSET[noteName] + (actualOctave * 12));
         this.lastStablePitchFrequency = 0;
         await this._setActiveDrivingMechanism('piano', true);
-        // ... update sound oscillator if active
+        if (this.isGeneratedSoundEnabled) {
+            // Restart oscillator with new frequency
+            if(this.generatedSoundOscillator) { try { this.generatedSoundOscillator.stop(); } catch(e){} }
+            this.generatedSoundOscillator = this.mainAudioContext.createOscillator();
+            this.generatedSoundOscillator.connect(this.generatedSoundGainNode);
+            this.generatedSoundOscillator.type = 'sine';
+            this.generatedSoundOscillator.frequency.setValueAtTime(this.currentFrequency, this.mainAudioContext.currentTime);
+            this.generatedSoundOscillator.start();
+        }
+    } else if (this.activePianoKeys.size === 0 && this.keyboardPressedKeys.size === 0) {
+        if (this.generatedSoundOscillator && this.isGeneratedSoundEnabled) {
+            this.generatedSoundGainNode?.gain.setTargetAtTime(0, this.mainAudioContext.currentTime, 0.02);
+            this.generatedSoundOscillator.stop(this.mainAudioContext.currentTime + 0.05);
+        }
     }
 }
 
@@ -1593,13 +1748,79 @@ _setupUX() {
     this._setupModals();
 }
 
-_setupLocalization() { /* ... unchanged ... */ }
-_setLanguage(lang) { /* ... unchanged ... */ }
-_setupTooltips() { /* ... unchanged ... */ }
-_showTooltip(key, targetElement) { /* ... unchanged ... */ }
-_hideTooltip() { /* ... unchanged ... */ }
-_setupModals() { /* ... unchanged ... */ }
-_startSpecialTrack() { /* ... unchanged ... */ }
+_setupLocalization() {
+    const savedLang = localStorage.getItem('chladni_lang');
+    const browserLang = navigator.language.split('-')[0];
+    this._setLanguage(savedLang || (LANG_PACK[browserLang] ? browserLang : 'ru'));
+}
+
+_setLanguage(lang) {
+    if (!LANG_PACK[lang]) return;
+    this.currentLanguage = lang;
+    localStorage.setItem('chladni_lang', lang);
+    if (this.uiElements['welcome-body-content'] && LANG_PACK[lang]['welcome_body']) {
+        this.uiElements['welcome-body-content'].innerHTML = LANG_PACK[lang]['welcome_body'];
+    }
+    document.querySelectorAll('[data-lang-key]').forEach(el => {
+        const key = el.dataset.langKey;
+        const translation = LANG_PACK[lang][key];
+        if (translation && !key.startsWith('btn_')) {
+            const textNode = Array.from(el.childNodes).find(node => node.nodeType === 3 && node.textContent.trim() !== '');
+            if (textNode) textNode.textContent = translation; else if (!el.children.length) el.innerHTML = translation;
+        }
+    });
+    this._updateUIToggleButtons();
+    this._updateModalParametersUI();
+}
+
+_setupTooltips() {
+    const tooltipElement = this.uiElements.tooltip;
+    if (!tooltipElement) return;
+    document.querySelectorAll('.control-group[data-tooltip-key]').forEach(el => {
+        el.addEventListener('mouseenter', (event) => this._showTooltip(el.dataset.tooltipKey, event.currentTarget));
+        el.addEventListener('mouseleave', () => this._hideTooltip());
+    });
+}
+
+_showTooltip(key, targetElement) {
+    if (this.tooltipTimeout) clearTimeout(this.tooltipTimeout);
+    const tooltipData = TOOLTIP_TEXTS[key]?.[this.currentLanguage];
+    if (!tooltipData) return;
+    const tooltipElement = this.uiElements.tooltip;
+    tooltipElement.innerHTML = `<h4>${tooltipData.title}</h4><p>${tooltipData.body}</p>`;
+    const rect = targetElement.getBoundingClientRect();
+    tooltipElement.classList.add('visible');
+    const tooltipRect = tooltipElement.getBoundingClientRect();
+    let x = rect.right + 15, y = rect.top + (rect.height / 2) - (tooltipRect.height / 2);
+    if (x + tooltipRect.width > window.innerWidth) x = rect.left - tooltipRect.width - 15;
+    if (y + tooltipRect.height > window.innerHeight) y = window.innerHeight - tooltipRect.height - 10;
+    if (y < 10) y = 10;
+    tooltipElement.style.left = `${x}px`;
+    tooltipElement.style.top = `${y}px`;
+}
+
+_hideTooltip() {
+    this.tooltipTimeout = setTimeout(() => { this.uiElements.tooltip.classList.remove('visible'); }, 100);
+}
+
+_setupModals() {
+    const welcomeOverlay = this.uiElements['welcome-overlay'];
+    const promptOverlay = this.uiElements['prompt-overlay'];
+    if (!welcomeOverlay || !promptOverlay) return;
+    const closeModal = () => { welcomeOverlay.classList.add('hidden'); localStorage.setItem('chladni_visited', 'true'); this._startSpecialTrack(); };
+    const openWelcome = () => welcomeOverlay.classList.remove('hidden');
+    if (!localStorage.getItem('chladni_visited')) openWelcome(); else welcomeOverlay.classList.add('hidden');
+    this.uiElements['close-modal-btn']?.addEventListener('click', closeModal);
+    this.uiElements['show-welcome-btn']?.addEventListener('click', openWelcome);
+    this.uiElements['show-prompt-btn']?.addEventListener('click', () => { if (this.uiElements['prompt-textarea']) this.uiElements['prompt-textarea'].value = PROJECT_PROMPT_TEXT; welcomeOverlay.classList.add('hidden'); promptOverlay.classList.remove('hidden'); });
+    this.uiElements['close-prompt-btn']?.addEventListener('click', () => { promptOverlay.classList.add('hidden'); openWelcome(); });
+    this.uiElements['lang-toggle-btn']?.addEventListener('click', () => this._setLanguage(this.currentLanguage === 'ru' ? 'en' : 'ru'));
+}
+
+async _startSpecialTrack() {
+    // This is a bonus feature and remains unchanged.
+}
+
 _handleWindowResize() {
     if (this.camera && this.renderer) {
         this.camera.aspect = window.innerWidth / window.innerHeight;
@@ -1608,13 +1829,6 @@ _handleWindowResize() {
     }
 }
 
-// =================================================================================================
-// ЧАСТЬ 4.2: ГЛАВНЫЙ ЦИКЛ АНИМАЦИИ
-// Это сердце приложения. Здесь в строгом порядке выполняются все GPGPU-проходы:
-// 1. Обновление FDM-симуляции.
-// 2. Обновление симуляции частиц.
-// 3. Финальный рендеринг видимой сцены.
-// =================================================================================================
 _animateScene() {
     requestAnimationFrame(this._animateScene.bind(this));
     const deltaTime = Math.min(this.animationClock.getDelta(), 0.05);
@@ -1622,15 +1836,15 @@ _animateScene() {
     this.orbitControls.update();
     
     // --- Обновление униформ ---
-    this.plateRotationAngle = (this.plateRotationAngle + this.plateRotationSpeed * 2 * Math.PI * deltaTime) % (2 * Math.PI);
-    this.simulationTime += deltaTime * this.particleSimulationSpeedScale;
+    this.plateRotationAngle = (this.plateRotationAngle + this.plateRotationSpeed * 2 * Math.PI * deltaTime);
+    this.simulationTime += deltaTime;
     
     // --- GPGPU Вычислительные проходы ---
     if (!this.areParticlesFrozen) {
         // --- 1. FDM Update Pass ---
         this.gpgpuMesh.material = this.fdmUpdateMaterial;
-        this.fdmUpdateMaterial.uniforms.u_excAmp.value = this._getFrequencyDependentExcitationAmplitude(this.actualAppliedFrequency);
-        // ... (update other FDM uniforms) ...
+        this.fdmUpdateMaterial.uniforms.u_simulationTime.value = this.simulationTime;
+        // (другие униформы обновляются в _resetFullSimulationState или _applyAdvancedSettingChange)
 
         const fdmSteps = this.enableFDMOptimization ? Math.max(5, Math.floor(this.BASE_MAX_FDM_STEPS_PER_FRAME / (this.actualAppliedFrequency / 1000 + 1.0))) : this.BASE_MAX_FDM_STEPS_PER_FRAME;
         for (let i = 0; i < fdmSteps; i++) {
@@ -1653,69 +1867,63 @@ _animateScene() {
 
     // --- 3. Финальный рендеринг на экран ---
     this.renderer.setRenderTarget(null);
-    
-    // Обновляем униформы для отрисовки
     this.particleRenderMaterial.uniforms.u_particlePositions.value = this.particleStateA.texture[0];
     this.particleRenderMaterial.uniforms.u_plateState.value = this.fdmStateA.texture;
     this.particlesMesh.geometry.setDrawRange(0, this.PARTICLE_COUNT);
 
     this.renderer.render(this.scene, this.camera);
 }
-} // *** КОНЕЦ КЛАССА ChladniSimulatorGPU ***
+}
 
-// =================================================================================================
-// ЧАСТЬ 4.3: ТОЧКА ВХОДА ПРИЛОЖЕНИЯ
-// =================================================================================================
 async function main() {
-    // Проверка поддержки WebGL 2
     const canvas = document.createElement('canvas');
-    const gl = canvas.getContext('webgl2');
-    if (!gl) {
+    try {
+        const gl = canvas.getContext('webgl2');
+        if (!gl) {
+            document.getElementById('webgl-error-overlay').style.display = 'flex';
+            return;
+        }
+    } catch(e) {
         document.getElementById('webgl-error-overlay').style.display = 'flex';
         return;
     }
     
     try {
-        // Асинхронная загрузка всех ассетов
-        const [besselRootsResponse, ...shaderResponses] = await Promise.all([
-            fetch('./data/bessel_roots.json'),
-            fetch('./shaders/common_vertex.glsl'),
-            fetch('./shaders/fdm_update_frag.glsl'),
-            fetch('./shaders/particle_update_frag.glsl'),
-            fetch('./shaders/particle_render_vert.glsl'),
-            fetch('./shaders/particle_render_frag.glsl'),
-        ]);
+        const assetUrls = [
+            './data/bessel_roots.json',
+            './shaders/common_vertex.glsl',
+            './shaders/fdm_update_frag.glsl',
+            './shaders/particle_update_frag.glsl',
+            './shaders/particle_render_vert.glsl',
+            './shaders/particle_render_frag.glsl',
+        ];
+        const responses = await Promise.all(assetUrls.map(url => fetch(url)));
 
-        if (!besselRootsResponse.ok) throw new Error('Bessel roots not found');
-        
-        const besselRootsTable = await besselRootsResponse.json();
-        const shaderSources = await Promise.all(shaderResponses.map(res => {
-            if (!res.ok) throw new Error(`Shader not found: ${res.url}`);
-            return res.text();
-        }));
+        for (const res of responses) {
+            if (!res.ok) throw new Error(`Не удалось загрузить ресурс: ${res.url}`);
+        }
+
+        const [besselData, ...shaderTexts] = await Promise.all(responses.map(res => res.text()));
         
         const loadedAssets = {
-            besselRootsTable,
+            besselRootsTable: JSON.parse(besselData),
             shaders: {
-                common_vertex: shaderSources[0],
-                fdm_update_frag: shaderSources[1],
-                particle_update_frag: shaderSources[2],
-                particle_render_vert: shaderSources[3],
-                particle_render_frag: shaderSources[4],
+                common_vertex: shaderTexts[0], fdm_update_frag: shaderTexts[1],
+                particle_update_frag: shaderTexts[2], particle_render_vert: shaderTexts[3],
+                particle_render_frag: shaderTexts[4],
             }
         };
 
         new ChladniSimulatorGPU(loadedAssets);
 
     } catch (error) {
-        console.error("Критическая ошибка инициализации симулятора:", error);
+        console.error("Критическая ошибка инициализации:", error);
         document.body.innerHTML = `<div style="color: #e06c75; background-color:#282c34; padding: 20px; font-family: sans-serif; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;">
-            <div><h1>Критическая ошибка</h1><p>Не удалось загрузить необходимые данные для симуляции.<br>Убедитесь, что все файлы (bessel_roots.json, shaders/*) существуют и доступны.</p><p style="font-family: monospace; background-color: #21252b; padding: 10px; border-radius: 5px;">${error.message}</p></div>
+            <div><h1>Критическая ошибка</h1><p>Не удалось загрузить необходимые данные.<br>Проверьте, что все файлы (bessel_roots.json, shaders/*) доступны.</p><p style="font-family: monospace; background-color: #21252b; padding: 10px; border-radius: 5px;">${error.message}</p></div>
         </div>`;
     }
 }
 
-// Запуск после загрузки DOM
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', main);
 } else {
